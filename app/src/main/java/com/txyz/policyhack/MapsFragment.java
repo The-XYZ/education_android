@@ -109,7 +109,7 @@ public class MapsFragment extends Fragment {
 
     public void fetchData(){
         ParseQuery<ParseObject> query = new ParseQuery<ParseObject>(
-                "Events");
+                "SchoolNames");
 //        query.orderByAscending(ParseTables.Events.CREATED_AT);
 
         query.findInBackground(new FindCallback<ParseObject>() {
