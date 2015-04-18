@@ -10,6 +10,7 @@ public class ItemData {
     public int imageUrl;
     public String block;
     public String village;
+    public String latlong;
 
 //    public ItemData(String title,int imageUrl,String block,String village){
 //
@@ -20,6 +21,9 @@ public class ItemData {
 //    }
     // getters & setters
 
+    public String getLatlong(){
+        return title;
+    }
     public String getTitle(){
         return title;
     }

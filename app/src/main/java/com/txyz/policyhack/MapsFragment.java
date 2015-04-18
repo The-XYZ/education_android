@@ -133,8 +133,10 @@ public class MapsFragment extends Fragment {
             itemData.imageUrl=   R.drawable.rsz_school_one;
             itemData.block= item.getString("BLOCK_NAME");
             itemData.village= item.getString("VILLAGE_NAME");
+            itemData.latlong= item.getString("GEOPOINT");
+
             list.add(itemData);
-            Log.d("lol2","lol");
+
         }
 
         myAdapter=new MyAdapter(getActivity(),list);
