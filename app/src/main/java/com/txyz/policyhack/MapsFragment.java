@@ -35,6 +35,7 @@ public class MapsFragment extends Fragment {
 
 
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -45,6 +46,20 @@ public class MapsFragment extends Fragment {
         mRecyclerView=(RecyclerView) v.findViewById(R.id.recycler_view);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity(),LinearLayoutManager.HORIZONTAL,false));
         mRecyclerView.setHasFixedSize(true);
+
+        ItemData itemsData[] = { new ItemData("LOl",R.drawable.ic_launcher),
+                new ItemData("lol",R.drawable.ic_launcher),
+                new ItemData("lol",R.drawable.ic_launcher),
+                new ItemData("lol",R.drawable.ic_launcher),
+                new ItemData("lol",R.drawable.ic_launcher),
+                new ItemData("lol",R.drawable.ic_launcher),
+                new ItemData("lol",R.drawable.ic_launcher),
+                new ItemData("lol",R.drawable.ic_launcher), new ItemData("lol",R.drawable.ic_launcher), new ItemData("lol",R.drawable.ic_launcher)
+        , new ItemData("lol",R.drawable.ic_launcher)};
+
+        MyAdapter myAdapter=new MyAdapter(getActivity(),itemsData);
+        mRecyclerView.setAdapter(myAdapter);
+
 
         resultCode=GooglePlayServicesUtil.isGooglePlayServicesAvailable(getActivity());
         if(resultCode != ConnectionResult.SUCCESS)

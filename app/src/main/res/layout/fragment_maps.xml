@@ -15,7 +15,7 @@
         android:id="@+id/recycler_view"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:gravity="bottom"
+        android:layout_gravity="bottom"
         android:clipToPadding="false"
         android:paddingTop="10dp" />
 

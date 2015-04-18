@@ -1,15 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="80dp"
-
+    android:layout_width="match_parent"
+    android:layout_height="300dp"
+    android:layout_margin="20dp"
+    android:padding="20dp"
     >
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="200dp">
+
 
     <!-- icon -->
     <ImageView
         android:id="@+id/item_icon"
-        android:layout_width="64dp"
-        android:layout_height="64dp"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
         android:layout_alignParentLeft="true"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
@@ -31,5 +37,7 @@
         android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
         android:textSize="22dp" />
+
+   </android.support.v7.widget.CardView>
 
 </RelativeLayout>

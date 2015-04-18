@@ -49,7 +49,7 @@
 
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"
-            android:value="AIzaSyCUS7DfUefOzQltqV5V5RJZdA6K1RpgIzo" />
+            android:value="AIzaSyBh7lGr1RViib_l3at4UGY2tU3564gvxws" />
 
         <activity
             android:name=".SchoolDetailActivity"
