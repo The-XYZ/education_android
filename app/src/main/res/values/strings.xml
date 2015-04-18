@@ -6,24 +6,18 @@
     <string name="action_settings">Settings</string>
 
     <string-array name="nav_drawer_items">
-
-        <item >Schools</item>
-        <item >Districts</item>
-        <item >Reach Us</item>
-
-
-
+        <item>Schools</item>
+        <item>Districts</item>
+        <item>Reach Us</item>
     </string-array>
 
-
     <array name="nav_drawer_icons">
-        <item></item>
-        <item></item>
-        <item></item>
-
-
-
+        <item/>
+        <item/>
+        <item/>
     </array>
+
     <string name="title_activity_school_detail">SchoolDetailActivity</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

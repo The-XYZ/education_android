@@ -1,0 +1,73 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:background="#000000"
+    >
+
+
+    <AutoCompleteTextView
+        android:layout_width="match_parent"
+        android:layout_height="0sp"
+        android:id="@+id/poolname"
+        android:hint="Type Your Pincode"
+        android:layout_weight="1"
+        android:maxLength="40"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:imeOptions="actionNext"
+        android:inputType="textCapSentences"
+        android:textColor="#ffa000"
+        />
+
+
+
+
+    <AutoCompleteTextView
+
+        android:layout_width="match_parent"
+        android:layout_height="0sp"
+
+        android:hint="Type your name"
+        android:id="@+id/phoneorganizer"
+        android:layout_marginBottom="10dp"
+        android:imeOptions="actionNext"
+        android:singleLine="true"
+        android:textColor="#ffa000"
+
+
+        android:layout_weight="1" />
+
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="0sp"
+        android:id="@+id/description"
+        android:hint="Summary. Describe your problem."
+        android:layout_weight="2"
+        android:maxLength="200"
+        android:layout_marginBottom="10dp"
+        android:imeOptions="actionNext"
+        android:textColor="#ffa000"
+        android:inputType="textCapSentences"
+
+        />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:text="Add Work"
+        android:id="@+id/invitefriends"
+        android:layout_weight="0.7"
+        android:layout_alignParentBottom="true"
+        android:background="#ffa000"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        />
+
+</LinearLayout>
