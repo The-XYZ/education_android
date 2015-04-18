@@ -47,15 +47,15 @@ public class MapsFragment extends Fragment {
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity(),LinearLayoutManager.HORIZONTAL,false));
         mRecyclerView.setHasFixedSize(true);
 
-        ItemData itemsData[] = { new ItemData("LOl",R.drawable.ic_launcher),
-                new ItemData("lol",R.drawable.ic_launcher),
-                new ItemData("lol",R.drawable.ic_launcher),
-                new ItemData("lol",R.drawable.ic_launcher),
-                new ItemData("lol",R.drawable.ic_launcher),
-                new ItemData("lol",R.drawable.ic_launcher),
-                new ItemData("lol",R.drawable.ic_launcher),
-                new ItemData("lol",R.drawable.ic_launcher), new ItemData("lol",R.drawable.ic_launcher), new ItemData("lol",R.drawable.ic_launcher)
-        , new ItemData("lol",R.drawable.ic_launcher)};
+        ItemData itemsData[] = { new ItemData("LOl",R.drawable.rsz_school_one,"LOL","LOL"),
+                new ItemData("lol",R.drawable.rsz_school_two,"LOL","LOL"),
+                new ItemData("lol",R.drawable.rsz_school_three,"LOL","LOL"),
+                new ItemData("lol",R.drawable.rsz_school_four,"LOL","LOL"),
+                new ItemData("lol",R.drawable.rsz_school_one,"LOL","LOL"),
+                new ItemData("lol",R.drawable.rsz_school_two,"LOL","LOL"),
+                new ItemData("lol",R.drawable.rsz_school_three,"LOL","LOL"),
+                new ItemData("lol",R.drawable.rsz_school_four,"LOL","LOL"), new ItemData("lol",R.drawable.rsz_school_one,"LOL","LOL"), new ItemData("lol",R.drawable.rsz_school_three,"LOL","LOL")
+        , new ItemData("lol",R.drawable.ic_launcher,"LOL","LOL")};
 
         MyAdapter myAdapter=new MyAdapter(getActivity(),itemsData);
         mRecyclerView.setAdapter(myAdapter);
