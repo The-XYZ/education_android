@@ -23,6 +23,14 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.parse.FindCallback;
+import com.parse.ParseException;
+import com.parse.ParseObject;
+import com.parse.ParseQuery;
+import com.parse.ParseUser;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by naman on 22/12/14.
@@ -32,7 +40,6 @@ public class MapsFragment extends Fragment {
     private GoogleMap mMap;
     private int resultCode;
     private RecyclerView mRecyclerView;
-
 
 
 
@@ -46,19 +53,6 @@ public class MapsFragment extends Fragment {
         mRecyclerView=(RecyclerView) v.findViewById(R.id.recycler_view);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity(),LinearLayoutManager.HORIZONTAL,false));
         mRecyclerView.setHasFixedSize(true);
-
-        ItemData itemsData[] = { new ItemData("LOl",R.drawable.rsz_school_one,"LOL","LOL"),
-                new ItemData("lol",R.drawable.rsz_school_two,"LOL","LOL"),
-                new ItemData("lol",R.drawable.rsz_school_three,"LOL","LOL"),
-                new ItemData("lol",R.drawable.rsz_school_four,"LOL","LOL"),
-                new ItemData("lol",R.drawable.rsz_school_one,"LOL","LOL"),
-                new ItemData("lol",R.drawable.rsz_school_two,"LOL","LOL"),
-                new ItemData("lol",R.drawable.rsz_school_three,"LOL","LOL"),
-                new ItemData("lol",R.drawable.rsz_school_four,"LOL","LOL"), new ItemData("lol",R.drawable.rsz_school_one,"LOL","LOL"), new ItemData("lol",R.drawable.rsz_school_three,"LOL","LOL")
-        , new ItemData("lol",R.drawable.ic_launcher,"LOL","LOL")};
-
-        MyAdapter myAdapter=new MyAdapter(getActivity(),itemsData);
-        mRecyclerView.setAdapter(myAdapter);
 
 
         resultCode=GooglePlayServicesUtil.isGooglePlayServicesAvailable(getActivity());
@@ -110,6 +104,41 @@ public class MapsFragment extends Fragment {
         {
             return false;
         }
+    }
+
+    public void fetchData(){
+        ParseQuery<ParseObject> query = new ParseQuery<ParseObject>(
+                "Events");
+//        query.orderByAscending(ParseTables.Events.CREATED_AT);
+
+        query.findInBackground(new FindCallback<ParseObject>() {
+            @Override
+            public void done(List<ParseObject> parseObjects, ParseException e) {
+                doneFetching(parseObjects);
+            }
+        });
+    }
+
+
+    public void doneFetching(List<ParseObject> objects) {
+
+        ArrayList<ItemData> list = new ArrayList<ItemData>();
+
+        for (ParseObject item : objects) {
+
+            ItemData itemData = new ItemData();
+            itemData.title= item.getString("SCHOOL_NAME");
+            itemData.imageUrl=   R.drawable.rsz_school_one;
+            itemData.block= item.getString("BLOCK_NAME");
+            itemData.village= item.getString("VILLAGE_NAME");
+
+            list.add(itemData);
+        }
+
+
+        MyAdapter myAdapter=new MyAdapter(getActivity(),list);
+        mRecyclerView.setAdapter(myAdapter);
+
     }
     public DialogInterface.OnClickListener getGoogleMapsListener() {
         return new DialogInterface.OnClickListener() {
