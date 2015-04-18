@@ -17,6 +17,9 @@ import com.github.ksoichiro.android.observablescrollview.ScrollState;
 import com.github.ksoichiro.android.observablescrollview.ScrollUtils;
 import com.nineoldandroids.view.ViewHelper;
 
+import org.eazegraph.lib.charts.BarChart;
+import org.eazegraph.lib.models.BarModel;
+
 
 public class SchoolDetailActivity extends ActionBarActivity implements ObservableScrollViewCallbacks {
 
@@ -33,6 +36,9 @@ public class SchoolDetailActivity extends ActionBarActivity implements Observabl
     private int mFlexibleSpaceImageHeight;
     private int mFabMargin;
     private int mToolbarColor;
+    private BarChart mBarChart;
+    private BarChart mBarChart2;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,6 +80,31 @@ public class SchoolDetailActivity extends ActionBarActivity implements Observabl
                 //mScrollView.scrollTo(0, 0);
             }
         });
+
+        mBarChart = (BarChart) findViewById(R.id.barchart);
+        mBarChart.addBar(new BarModel(2.3f, 0xFF123456));
+        mBarChart.addBar(new BarModel(2.f,  0xFF343456));
+        mBarChart.addBar(new BarModel(3.3f, 0xFF563456));
+        mBarChart.addBar(new BarModel(1.1f, 0xFF873F56));
+        mBarChart.addBar(new BarModel(2.7f, 0xFF56B7F1));
+        mBarChart.addBar(new BarModel(2.f,  0xFF343456));
+        mBarChart.addBar(new BarModel(0.4f, 0xFF1FF4AC));
+        mBarChart.addBar(new BarModel(4.f,  0xFF1BA4E6));
+
+        mBarChart.startAnimation();
+        //mBarChart.canScrollHorizontally(1);
+
+        mBarChart2 = (BarChart) findViewById(R.id.barchart2);
+        mBarChart2.addBar(new BarModel(2.3f, 0xFF123456));
+        mBarChart2.addBar(new BarModel(2.f,  0xFF343456));
+        mBarChart2.addBar(new BarModel(3.3f, 0xFF563456));
+        mBarChart2.addBar(new BarModel(1.1f, 0xFF873F56));
+        mBarChart2.addBar(new BarModel(2.7f, 0xFF56B7F1));
+        mBarChart2.addBar(new BarModel(2.f,  0xFF343456));
+        mBarChart2.addBar(new BarModel(0.4f, 0xFF1FF4AC));
+        mBarChart2.addBar(new BarModel(4.f,  0xFF1BA4E6));
+
+        mBarChart.startAnimation();
 
 
     }
