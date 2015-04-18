@@ -18,15 +18,12 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-<<<<<<< HEAD
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-=======
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
->>>>>>> 8c3e06da91792eabb68b05da19c99c6e614a1eff
 import android.widget.Spinner;
 
 import com.google.android.gms.common.ConnectionResult;
@@ -73,7 +70,7 @@ public class DistrictsFragment  extends Fragment {
         mRecyclerView=(RecyclerView) v.findViewById(R.id.recycler_view);
         spinner=(Spinner)getActivity().findViewById(R.id.spinner_nav);
         spinner.setVisibility(View.VISIBLE);
-        List<String> list = new ArrayList<String>();
+        final List<String> list = new ArrayList<String>();
         list.add("ARUNACHAL PRADESH");
         list.add("PUDUCHERRY");
         list.add("JHARKHAND");list.add("HARYANA");list.add("MANIPUR");list.add("GOA");list.add("MEGHALAYA");
@@ -86,6 +83,9 @@ public class DistrictsFragment  extends Fragment {
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+
+                fetchData1(list.get(i));
+                fetchData2(list.get(i));
 
             }
 
@@ -100,9 +100,6 @@ public class DistrictsFragment  extends Fragment {
 
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false));
         mRecyclerView.setHasFixedSize(true);
-        fetchData1();
-        fetchData2();
-
 
         resultCode= GooglePlayServicesUtil.isGooglePlayServicesAvailable(getActivity());
         if(resultCode != ConnectionResult.SUCCESS)

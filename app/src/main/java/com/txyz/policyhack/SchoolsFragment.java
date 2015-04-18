@@ -116,24 +116,14 @@ public class SchoolsFragment extends Fragment {
             itemData.block= item.getString("BLOCK_NAME");
             itemData.village= item.getString("VILLAGE_NAME");
             try {
-<<<<<<< HEAD
-            itemData.latlong= ""+item.getParseGeoPoint("lat").getLatitude()+","+item.getParseGeoPoint("lat").getLongitude();
-
-                addToMap(itemData.getLatlong().toString(),itemData.getTitle());
-                Log.d("lol",itemData.getLatlong().toString());
+                itemData.latlong = "" + item.getParseGeoPoint("lat").getLatitude() + "," + item.getParseGeoPoint("lat").getLongitude();
+                addToMap(itemData.getLatlong().toString(), itemData.getTitle());
+                Log.d("lol", itemData.getLatlong().toString());
             }
            catch (NullPointerException e){
 
            }
-=======
-                itemData.latlong= ""+item.getParseGeoPoint("lat").getLatitude()+","+item.getParseGeoPoint("lat").getLongitude();
-                addToMap(itemData.getLatlong().toString(),itemData.getTitle());
-                Log.d("lol",itemData.getLatlong().toString());
-            }  catch (NullPointerException e){
 
-            }
-
->>>>>>> 8c3e06da91792eabb68b05da19c99c6e614a1eff
             list.add(itemData);
 
         }
@@ -142,6 +132,7 @@ public class SchoolsFragment extends Fragment {
 
         mRecyclerView.setAdapter(myAdapter);
         Log.d("lol", "lol");
+
 
     }
     public DialogInterface.OnClickListener getGoogleMapsListener() {
