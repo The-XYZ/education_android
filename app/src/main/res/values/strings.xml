@@ -24,5 +24,6 @@
 
 
     </array>
+    <string name="title_activity_school_detail">SchoolDetailActivity</string>
 
 </resources>
