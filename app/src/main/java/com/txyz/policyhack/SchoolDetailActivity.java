@@ -32,6 +32,12 @@ import org.eazegraph.lib.models.BarModel;
 import org.eazegraph.lib.models.PieModel;
 import org.eazegraph.lib.models.StackedBarModel;
 
+import org.eazegraph.lib.charts.PieChart;
+import org.eazegraph.lib.charts.StackedBarChart;
+import org.eazegraph.lib.models.BarModel;
+import org.eazegraph.lib.models.PieModel;
+import org.eazegraph.lib.models.StackedBarModel;
+
 
 public class SchoolDetailActivity extends ActionBarActivity implements ObservableScrollViewCallbacks {
 
@@ -55,7 +61,6 @@ public class SchoolDetailActivity extends ActionBarActivity implements Observabl
     String Schoolname;
     String Block;
     String Village;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

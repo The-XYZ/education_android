@@ -70,6 +70,7 @@ public class SchoolsFragment extends Fragment {
             dialog.show();
         }
 
+<<<<<<< HEAD
 
             MarkerOptions markerOptions;
             LatLng position;
@@ -97,6 +98,8 @@ public class SchoolsFragment extends Fragment {
 
 
 
+=======
+>>>>>>> c051535446be074df1275ff5e75a0f385ae39925
         return v;
     }
 
@@ -163,6 +166,7 @@ public class SchoolsFragment extends Fragment {
             }
         };
     }
+<<<<<<< HEAD
 
 
     public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
@@ -249,6 +253,8 @@ public class SchoolsFragment extends Fragment {
         }
     }
 
+=======
+>>>>>>> c051535446be074df1275ff5e75a0f385ae39925
     private void addToMap(String latlong,String title){
         mMap = ((SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.map)).getMap();
 
