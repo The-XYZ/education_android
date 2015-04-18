@@ -69,7 +69,8 @@
         <activity
             android:name=".SchoolDetailActivity"
             android:label="@string/title_activity_school_detail"
-            android:parentActivityName=".MainActivity" >
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/SchoolDetailActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
