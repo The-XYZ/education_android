@@ -8,7 +8,7 @@
     <string-array name="nav_drawer_items">
         <item>Schools</item>
         <item>Districts</item>
-        <item>Reach Us</item>
+        <item>Complaints</item>
     </string-array>
 
     <array name="nav_drawer_icons">
