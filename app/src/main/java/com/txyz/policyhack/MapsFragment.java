@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,6 +24,13 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.parse.FindCallback;
+import com.parse.ParseException;
+import com.parse.ParseObject;
+import com.parse.ParseQuery;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by naman on 22/12/14.
@@ -32,9 +40,9 @@ public class MapsFragment extends Fragment {
     private GoogleMap mMap;
     private int resultCode;
     private RecyclerView mRecyclerView;
+    MyAdapter myAdapter;
 
-
-
+    ArrayList<ItemData> list = new ArrayList<ItemData>();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -46,20 +54,7 @@ public class MapsFragment extends Fragment {
         mRecyclerView=(RecyclerView) v.findViewById(R.id.recycler_view);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity(),LinearLayoutManager.HORIZONTAL,false));
         mRecyclerView.setHasFixedSize(true);
-
-        ItemData itemsData[] = { new ItemData("LOl",R.drawable.rsz_school_one,"LOL","LOL"),
-                new ItemData("lol",R.drawable.rsz_school_two,"LOL","LOL"),
-                new ItemData("lol",R.drawable.rsz_school_three,"LOL","LOL"),
-                new ItemData("lol",R.drawable.rsz_school_four,"LOL","LOL"),
-                new ItemData("lol",R.drawable.rsz_school_one,"LOL","LOL"),
-                new ItemData("lol",R.drawable.rsz_school_two,"LOL","LOL"),
-                new ItemData("lol",R.drawable.rsz_school_three,"LOL","LOL"),
-                new ItemData("lol",R.drawable.rsz_school_four,"LOL","LOL"), new ItemData("lol",R.drawable.rsz_school_one,"LOL","LOL"), new ItemData("lol",R.drawable.rsz_school_three,"LOL","LOL")
-        , new ItemData("lol",R.drawable.ic_launcher,"LOL","LOL")};
-
-        MyAdapter myAdapter=new MyAdapter(getActivity(),itemsData);
-        mRecyclerView.setAdapter(myAdapter);
-
+        fetchData();
 
         resultCode=GooglePlayServicesUtil.isGooglePlayServicesAvailable(getActivity());
         if(resultCode != ConnectionResult.SUCCESS)
@@ -110,6 +105,44 @@ public class MapsFragment extends Fragment {
         {
             return false;
         }
+    }
+
+    public void fetchData(){
+        ParseQuery<ParseObject> query = new ParseQuery<ParseObject>(
+                "SchoolNames");
+//        query.orderByAscending(ParseTables.Events.CREATED_AT);
+
+        query.findInBackground(new FindCallback<ParseObject>() {
+            @Override
+            public void done(List<ParseObject> parseObjects, ParseException e) {
+                doneFetching(parseObjects);
+            }
+        });
+    }
+
+
+    public void doneFetching(List<ParseObject> objects) {
+
+        ArrayList<ItemData> list = new ArrayList<ItemData>();
+        Log.d("lol",objects.toString());
+
+        for (ParseObject item : objects) {
+
+            ItemData itemData = new ItemData();
+            itemData.title= item.getString("SCHOOL_NAME");
+            itemData.imageUrl=   R.drawable.rsz_school_one;
+            itemData.block= item.getString("BLOCK_NAME");
+            itemData.village= item.getString("VILLAGE_NAME");
+            list.add(itemData);
+            Log.d("lol2","lol");
+        }
+
+        myAdapter=new MyAdapter(getActivity(),list);
+
+
+        mRecyclerView.setAdapter(myAdapter);
+        Log.d("lol","lol");
+
     }
     public DialogInterface.OnClickListener getGoogleMapsListener() {
         return new DialogInterface.OnClickListener() {

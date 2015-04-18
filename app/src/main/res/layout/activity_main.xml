@@ -100,6 +100,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="top"
         android:background="#aaffffff"
+        android:paddingTop="24dp"
         android:minHeight="?attr/actionBarSize"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
         app:theme="@style/ThemeOverlay.AppCompat.Light" />
