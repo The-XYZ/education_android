@@ -1,5 +1,6 @@
 package com.txyz.policyhack;
 
+import android.content.Intent;
 import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -16,6 +17,14 @@ import com.github.ksoichiro.android.observablescrollview.ObservableScrollViewCal
 import com.github.ksoichiro.android.observablescrollview.ScrollState;
 import com.github.ksoichiro.android.observablescrollview.ScrollUtils;
 import com.nineoldandroids.view.ViewHelper;
+import com.parse.DeleteCallback;
+import com.parse.FindCallback;
+import com.parse.ParseException;
+import com.parse.ParseObject;
+import com.parse.ParseQuery;
+import com.parse.ParseUser;
+
+import java.util.List;
 
 
 public class SchoolDetailActivity extends ActionBarActivity implements ObservableScrollViewCallbacks {
@@ -34,12 +43,20 @@ public class SchoolDetailActivity extends ActionBarActivity implements Observabl
     private int mFabMargin;
     private int mToolbarColor;
 
+    String Schoolname;
+    String Block;
+    String Village;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_school_detail);
 
         setSupportActionBar((Toolbar) findViewById(R.id.toolbar));
+
+        Intent intent = getIntent();
+        intent.getStringExtra("S");
 
         mFlexibleSpaceImageHeight = getResources().getDimensionPixelSize(R.dimen.flexible_space_image_height);
         mActionBarSize = getActionBarSize();
@@ -77,6 +94,23 @@ public class SchoolDetailActivity extends ActionBarActivity implements Observabl
 
 
     }
+
+
+    public void makeQuery()
+    {
+        ParseQuery<ParseObject> query = new ParseQuery<ParseObject>(
+                "Teachers");
+        query.whereEqualTo("SCHCD","");
+//        query.orderByAscending(ParseTables.Events.CREATED_AT);
+
+        query.findInBackground(new FindCallback<ParseObject>() {
+            @Override
+            public void done(List<ParseObject> parseObjects, ParseException e) {
+//                doneFetching(parseObjects);
+            }
+        });
+    }
+
 
     @Override
     public void onScrollChanged(int scrollY, boolean firstScroll, boolean dragging) {

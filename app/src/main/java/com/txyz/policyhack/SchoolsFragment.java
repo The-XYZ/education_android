@@ -219,7 +219,6 @@ public class SchoolsFragment extends Fragment {
                 }
             });
 
-
         }
 
         // inner class to hold a reference to each item of RecyclerView
