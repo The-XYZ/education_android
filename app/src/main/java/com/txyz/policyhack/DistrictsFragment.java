@@ -9,12 +9,15 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Spinner;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
@@ -41,6 +44,9 @@ public class DistrictsFragment  extends Fragment {
     private int resultCode;
     private RecyclerView mRecyclerView;
     MyAdapter2 myAdapter;
+    Spinner spinner;
+    Toolbar toolbar;
+
 
 
     @Override
@@ -51,7 +57,12 @@ public class DistrictsFragment  extends Fragment {
         final View v = inflater.inflate(R.layout.fragment_maps, container, false);
 
         mRecyclerView=(RecyclerView) v.findViewById(R.id.recycler_view);
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity(),LinearLayoutManager.HORIZONTAL,false));
+        spinner=(Spinner)getActivity().findViewById(R.id.spinner_nav);
+        spinner.setVisibility(View.VISIBLE);
+        toolbar=(Toolbar) getActivity().findViewById(R.id.toolbar);
+
+
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false));
         mRecyclerView.setHasFixedSize(true);
         fetchData();
 

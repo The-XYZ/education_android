@@ -15,6 +15,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Spinner;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
@@ -41,6 +42,7 @@ public class SchoolsFragment extends Fragment {
     private int resultCode;
     private RecyclerView mRecyclerView;
     MyAdapter myAdapter;
+    Spinner spinner;
 
     ArrayList<ItemData> list = new ArrayList<ItemData>();
 
@@ -50,7 +52,8 @@ public class SchoolsFragment extends Fragment {
 
 
         final View v = inflater.inflate(R.layout.fragment_maps, container, false);
-
+        spinner=(Spinner)getActivity().findViewById(R.id.spinner_nav);
+        spinner.setVisibility(View.GONE);
         mRecyclerView=(RecyclerView) v.findViewById(R.id.recycler_view);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity(),LinearLayoutManager.HORIZONTAL,false));
         mRecyclerView.setHasFixedSize(true);
@@ -147,7 +150,7 @@ public class SchoolsFragment extends Fragment {
         markerOptions.position(position);
         markerOptions.title(title);
         mMap.addMarker(markerOptions);
-        CameraUpdate cameraPosition = CameraUpdateFactory.newLatLngZoom(position, 15.0f);
+        CameraUpdate cameraPosition = CameraUpdateFactory.newLatLngZoom(position, 6.0f);
         mMap.animateCamera(cameraPosition);
 
     }
