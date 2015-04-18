@@ -22,6 +22,9 @@
         android:src="@drawable/ic_launcher"
         />
 
+
+
+
     <!-- title -->
     <TextView
         android:id="@+id/item_title"

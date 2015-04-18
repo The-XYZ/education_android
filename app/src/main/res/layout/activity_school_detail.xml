@@ -75,7 +75,8 @@ Quam libero nulla netus eu porta curae, ut nulla bibendum facilisis et urna sed,
             android:maxLines="1"
             android:minHeight="?attr/actionBarSize"
             android:textColor="@android:color/white"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:paddingLeft="10dp"/>
 
         <View
             android:layout_width="match_parent"
