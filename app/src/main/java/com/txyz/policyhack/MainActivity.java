@@ -160,7 +160,7 @@ public class MainActivity extends ActionBarActivity {
                 fragment = new MapsFragment();
                 break;
             case 1:
-                fragment = new MapsFragment();
+                fragment = new DistrictsFragment();
                 break;
             case 2:
                 fragment = new MapsFragment();
