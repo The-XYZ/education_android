@@ -6,18 +6,18 @@ package com.txyz.policyhack;
 public class ItemData {
 
 
-    private String title;
-    private int imageUrl;
-    private String block;
-    private String village;
+    public String title;
+    public int imageUrl;
+    public String block;
+    public String village;
 
-    public ItemData(String title,int imageUrl,String block,String village){
-
-        this.title = title;
-        this.imageUrl = imageUrl;
-        this.block=block;
-        this.village=village;
-    }
+//    public ItemData(String title,int imageUrl,String block,String village){
+//
+//        this.title = title;
+//        this.imageUrl = imageUrl;
+//        this.block=block;
+//        this.village=village;
+//    }
     // getters & setters
 
     public String getTitle(){

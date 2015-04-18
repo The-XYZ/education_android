@@ -13,13 +13,15 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
-    private ItemData[] itemsData;
+    ArrayList<ItemData> itemsData;
     private Context context;
 
     private int lastPosition = -1;
 
-    public MyAdapter(Context context ,ItemData[] itemsData) {
+    public MyAdapter(Context context ,  ArrayList<ItemData> itemsData) {
         this.itemsData = itemsData;
         this.context =context;
     }
@@ -46,10 +48,10 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
         // - replace the contents of the view with that itemsData
         setAnimation(viewHolder.itemView,position);
 
-        viewHolder.txtViewTitle.setText(itemsData[position].getTitle());
-        viewHolder.imgViewIcon.setImageResource(itemsData[position].getImageUrl());
-        viewHolder.block.setText(itemsData[position].getBlock());
-        viewHolder.village.setText(itemsData[position].getVillage());
+        viewHolder.txtViewTitle.setText(itemsData.get(position).getTitle());
+        viewHolder.imgViewIcon.setImageResource(itemsData.get(position).getImageUrl());
+        viewHolder.block.setText(itemsData.get(position).getBlock());
+        viewHolder.village.setText(itemsData.get(position).getVillage());
 
 
 
@@ -74,7 +76,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     // Return the size of your itemsData (invoked by the layout manager)
     @Override
     public int getItemCount() {
-        return itemsData.length;
+        return itemsData.size();
     }
 
     private void setAnimation(View viewToAnimate, int position)
