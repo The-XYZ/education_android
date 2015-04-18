@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,7 +28,6 @@ import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
-import com.parse.ParseUser;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -40,8 +40,9 @@ public class MapsFragment extends Fragment {
     private GoogleMap mMap;
     private int resultCode;
     private RecyclerView mRecyclerView;
+    MyAdapter myAdapter;
 
-
+    ArrayList<ItemData> list = new ArrayList<ItemData>();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -53,7 +54,7 @@ public class MapsFragment extends Fragment {
         mRecyclerView=(RecyclerView) v.findViewById(R.id.recycler_view);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity(),LinearLayoutManager.HORIZONTAL,false));
         mRecyclerView.setHasFixedSize(true);
-
+        fetchData();
 
         resultCode=GooglePlayServicesUtil.isGooglePlayServicesAvailable(getActivity());
         if(resultCode != ConnectionResult.SUCCESS)
@@ -123,6 +124,7 @@ public class MapsFragment extends Fragment {
     public void doneFetching(List<ParseObject> objects) {
 
         ArrayList<ItemData> list = new ArrayList<ItemData>();
+        Log.d("lol",objects.toString());
 
         for (ParseObject item : objects) {
 
@@ -131,13 +133,15 @@ public class MapsFragment extends Fragment {
             itemData.imageUrl=   R.drawable.rsz_school_one;
             itemData.block= item.getString("BLOCK_NAME");
             itemData.village= item.getString("VILLAGE_NAME");
-
             list.add(itemData);
+            Log.d("lol2","lol");
         }
 
+        myAdapter=new MyAdapter(getActivity(),list);
 
-        MyAdapter myAdapter=new MyAdapter(getActivity(),list);
+
         mRecyclerView.setAdapter(myAdapter);
+        Log.d("lol","lol");
 
     }
     public DialogInterface.OnClickListener getGoogleMapsListener() {
