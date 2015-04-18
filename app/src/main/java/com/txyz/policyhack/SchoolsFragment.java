@@ -110,9 +110,15 @@ public class SchoolsFragment extends Fragment {
             itemData.imageUrl=   R.drawable.rsz_school_one;
             itemData.block= item.getString("BLOCK_NAME");
             itemData.village= item.getString("VILLAGE_NAME");
+            try {
             itemData.latlong= ""+item.getParseGeoPoint("lat").getLatitude()+","+item.getParseGeoPoint("lat").getLongitude();
-            addToMap(itemData.getLatlong().toString(),itemData.getTitle());
-            Log.d("lol",itemData.getLatlong().toString());
+
+                addToMap(itemData.getLatlong().toString(),itemData.getTitle());
+                Log.d("lol",itemData.getLatlong().toString());
+            }
+           catch (NullPointerException e){
+
+           }
             list.add(itemData);
 
         }
@@ -120,7 +126,7 @@ public class SchoolsFragment extends Fragment {
         myAdapter=new MyAdapter(getActivity(),list);
 
         mRecyclerView.setAdapter(myAdapter);
-        Log.d("lol","lol");
+        Log.d("lol", "lol");
 
     }
     public DialogInterface.OnClickListener getGoogleMapsListener() {
