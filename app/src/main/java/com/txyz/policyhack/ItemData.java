@@ -22,7 +22,7 @@ public class ItemData {
     // getters & setters
 
     public String getLatlong(){
-        return title;
+        return latlong;
     }
     public String getTitle(){
         return title;
