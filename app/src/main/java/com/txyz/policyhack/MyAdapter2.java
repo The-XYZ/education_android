@@ -48,26 +48,22 @@ public class MyAdapter2 extends RecyclerView.Adapter<MyAdapter2.ViewHolder> {
         // - replace the contents of the view with that itemsData
         setAnimation(viewHolder.itemView, position);
 
-        viewHolder.txtViewTitle.setText(itemsData.get(position).getTitle());
+        viewHolder.disname.setText(itemsData.get(position).getDistname());
         viewHolder.imgViewIcon.setImageResource(itemsData.get(position).getImageUrl());
-        viewHolder.block.setText(itemsData.get(position).getBlock());
-        viewHolder.village.setText(itemsData.get(position).getVillage());
-
-
+        viewHolder.state.setText(itemsData.get(position).getStatename());
     }
 
     // inner class to hold a reference to each item of RecyclerView
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
-        public TextView txtViewTitle, block, village;
+        public TextView disname, state;
         public ImageView imgViewIcon;
 
         public ViewHolder(View itemLayoutView) {
             super(itemLayoutView);
-            txtViewTitle = (TextView) itemLayoutView.findViewById(R.id.item_title);
+            disname = (TextView) itemLayoutView.findViewById(R.id.item_title);
             imgViewIcon = (ImageView) itemLayoutView.findViewById(R.id.item_icon);
-            block = (TextView) itemLayoutView.findViewById(R.id.item_block);
-            village = (TextView) itemLayoutView.findViewById(R.id.item_village);
+            state = (TextView) itemLayoutView.findViewById(R.id.item_block);
         }
     }
 

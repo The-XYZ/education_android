@@ -90,6 +90,8 @@ public class DistrictsFragment  extends Fragment {
                 dialog.show();
             }
         }
+
+
         return v;
     }
 
@@ -128,10 +130,21 @@ public class DistrictsFragment  extends Fragment {
         for (ParseObject item : objects) {
 
             DistrictData itemData = new DistrictData();
-            itemData.title= item.getString("SCHOOL_NAME");
+
+            itemData.statename= item.getString("statename");
             itemData.imageUrl=   R.drawable.rsz_school_one;
-            itemData.block= item.getString("BLOCK_NAME");
-            itemData.village= item.getString("VILLAGE_NAME");
+            itemData.distname= item.getString("distname");
+            itemData.totschools= item.getString("totschools");
+            itemData.totpopulation= item.getString("totpopulation");
+            itemData.p_06_pop= item.getString("p_06_pop");
+            itemData.p_urb_pop= item.getString("p_urb_pop");
+            itemData.sexratio= item.getString("sexratio");
+            itemData.sexratio_06= item.getString("sexratio_06");
+            itemData.growthrate= item.getString("growthrate");
+            itemData.p_sc_pop= item.getString("p_sc_pop");
+            itemData.overall_lit= item.getString("overall_lit");
+            itemData.female_lit= item.getString("female_lit");
+
             list.add(itemData);
             Log.d("lol2","lol");
         }

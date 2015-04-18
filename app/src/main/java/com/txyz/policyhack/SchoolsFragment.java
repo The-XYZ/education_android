@@ -35,7 +35,7 @@ import java.util.List;
 /**
  * Created by naman on 22/12/14.
  */
-public class MapsFragment extends Fragment {
+public class SchoolsFragment extends Fragment {
 
     private GoogleMap mMap;
     private int resultCode;

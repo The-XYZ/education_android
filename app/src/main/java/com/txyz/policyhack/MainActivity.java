@@ -157,13 +157,13 @@ public class MainActivity extends ActionBarActivity {
         Fragment fragment = null;
         switch (position) {
             case 0:
-                fragment = new MapsFragment();
+                fragment = new SchoolsFragment();
                 break;
             case 1:
                 fragment = new DistrictsFragment();
                 break;
             case 2:
-                fragment = new MapsFragment();
+                fragment = new SchoolsFragment();
                 break;
 
 
