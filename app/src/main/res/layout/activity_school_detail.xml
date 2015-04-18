@@ -55,18 +55,35 @@
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:padding="10dp"
-                    android:text="School Growth"
+                    android:text="Teacher's Info"
                     android:textSize="25sp"
                     android:textStyle="bold"/>
 
-                <org.eazegraph.lib.charts.BarChart xmlns:app="http://schemas.android.com/apk/res-auto"
-                    android:id="@+id/barchart"
-                    android:layout_width="match_parent"
-                    android:layout_height="256dp"
-                    android:padding="10dp"
-                    app:egBarWidth="20dp"
-                    app:egFixedBarWidth="true"
-                    app:egLegendHeight="40dp" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:padding="10dp"
+                        android:text="Teacher's Name : "
+                        android:textSize="15sp"
+                        android:textStyle="italic"/>
+
+                    <org.eazegraph.lib.charts.PieChart
+                        xmlns:app="http://schemas.android.com/apk/res-auto"
+                        android:id="@+id/piechart"
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp"
+                        android:padding="10dp"
+                        app:egLegendTextSize="18sp"
+                        app:egUsePieRotation="true"
+                        app:egValueTextSize="36sp"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:padding="10dp"
+                        android:text="No. of teachers with professional degree "
+                        android:textSize="15sp"
+                        android:textStyle="normal"/>
 
                 </LinearLayout>
             </android.support.v7.widget.CardView>
@@ -86,18 +103,54 @@
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
                         android:padding="10dp"
-                        android:text="School Growth"
+                        android:text="Enrollment"
                         android:textSize="25sp"
                         android:textStyle="bold"/>
 
-                    <org.eazegraph.lib.charts.BarChart xmlns:app="http://schemas.android.com/apk/res-auto"
-                        android:id="@+id/barchart2"
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:padding="10dp"
+                        android:text="Academic year : "
+                        android:textSize="15sp"
+                        android:textStyle="italic"/>
+
+                    <org.eazegraph.lib.charts.StackedBarChart
+                        xmlns:app="http://schemas.android.com/apk/res-auto"
+                        android:id="@+id/stackedbarchart"
                         android:layout_width="match_parent"
                         android:layout_height="256dp"
                         android:padding="10dp"
-                        app:egBarWidth="20dp"
                         app:egFixedBarWidth="true"
-                        app:egLegendHeight="40dp" />
+                        app:egBarWidth="20dp"
+                        app:egLegendHeight="40dp"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="50dp"
+                            android:layout_weight="1"
+                            android:padding="10dp"
+                            android:text="created at : "
+                            android:textSize="15sp"
+                            android:textStyle="normal"/>
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="50dp"
+                            android:layout_weight="1"
+                            android:padding="10dp"
+                            android:text="updated at : "
+                            android:textSize="15sp"
+                            android:textStyle="normal"/>
+
+                    </LinearLayout>
+
 
                 </LinearLayout>
             </android.support.v7.widget.CardView>
