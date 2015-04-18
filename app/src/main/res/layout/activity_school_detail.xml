@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/flexible_space_image_height"
         android:scaleType="centerCrop"
-        android:src="@drawable/rsz_school_two" />
+        android:src="@color/colorPrimary" />
 
     <View
         android:id="@+id/overlay"

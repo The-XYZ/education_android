@@ -1,6 +1,5 @@
 package com.txyz.policyhack;
 
-import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -16,13 +15,11 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
-import android.widget.TextView;
-
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
@@ -50,6 +47,7 @@ public class SchoolsFragment extends Fragment {
     private RecyclerView mRecyclerView;
     MyAdapter myAdapter;
     Spinner spinner;
+    View myView;
 
     ArrayList<ItemData> list = new ArrayList<ItemData>();
 
@@ -75,32 +73,6 @@ public class SchoolsFragment extends Fragment {
 
             dialog.show();
         }
-
-
-            MarkerOptions markerOptions;
-            LatLng position;
-
-            markerOptions = new MarkerOptions();
-
-            if (isGoogleMapsInstalled()) {
-                position = new LatLng(28.749783333f, 77.1172f);
-                markerOptions.position(position);
-                markerOptions.title("Delhi Technological University");
-                mMap.addMarker(markerOptions);
-                CameraUpdate cameraPosition = CameraUpdateFactory.newLatLngZoom(position, 15.0f);
-                mMap.animateCamera(cameraPosition);
-            }
-            else
-            {
-                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-                builder.setMessage("Please install Google Maps");
-                builder.setCancelable(true);
-                builder.setPositiveButton("Install", getGoogleMapsListener());
-                AlertDialog dialog = builder.create();
-                dialog.show();
-            }
-
-
 
 
         return v;
@@ -143,9 +115,25 @@ public class SchoolsFragment extends Fragment {
             itemData.imageUrl=   R.drawable.rsz_school_one;
             itemData.block= item.getString("BLOCK_NAME");
             itemData.village= item.getString("VILLAGE_NAME");
+            try {
+<<<<<<< HEAD
             itemData.latlong= ""+item.getParseGeoPoint("lat").getLatitude()+","+item.getParseGeoPoint("lat").getLongitude();
-            addToMap(itemData.getLatlong().toString(),itemData.getTitle());
-            Log.d("lol",itemData.getLatlong().toString());
+
+                addToMap(itemData.getLatlong().toString(),itemData.getTitle());
+                Log.d("lol",itemData.getLatlong().toString());
+            }
+           catch (NullPointerException e){
+
+           }
+=======
+                itemData.latlong= ""+item.getParseGeoPoint("lat").getLatitude()+","+item.getParseGeoPoint("lat").getLongitude();
+                addToMap(itemData.getLatlong().toString(),itemData.getTitle());
+                Log.d("lol",itemData.getLatlong().toString());
+            }  catch (NullPointerException e){
+
+            }
+
+>>>>>>> 8c3e06da91792eabb68b05da19c99c6e614a1eff
             list.add(itemData);
 
         }
@@ -153,7 +141,7 @@ public class SchoolsFragment extends Fragment {
         myAdapter=new MyAdapter(getActivity(),list);
 
         mRecyclerView.setAdapter(myAdapter);
-        Log.d("lol","lol");
+        Log.d("lol", "lol");
 
     }
     public DialogInterface.OnClickListener getGoogleMapsListener() {
@@ -167,6 +155,7 @@ public class SchoolsFragment extends Fragment {
             }
         };
     }
+
 
 
     public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
@@ -206,16 +195,17 @@ public class SchoolsFragment extends Fragment {
             viewHolder.block.setText(itemsData.get(position).getBlock());
             viewHolder.village.setText(itemsData.get(position).getVillage());
 
-            viewHolder.imgViewIcon.setOnClickListener(new View.OnClickListener() {
+            myView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     Intent intent = new Intent(getActivity(), SchoolDetailActivity.class);
-                    intent.putExtra("SCHOOL_ID",list.get(position).getTitle());
-                    intent.putExtra("BLOCK",list.get(position).getBlock());
-                    intent.putExtra("VILLAGE",list.get(position).getVillage());
+//                    intent.putExtra("SCHOOL_ID",list.get(position).getTitle());
+//                    intent.putExtra("BLOCK",list.get(position).getBlock());
+//                    intent.putExtra("VILLAGE",list.get(position).getVillage());
                     startActivity(intent);
                 }
             });
+
 
         }
 
@@ -227,10 +217,12 @@ public class SchoolsFragment extends Fragment {
 
             public ViewHolder(View itemLayoutView) {
                 super(itemLayoutView);
+                myView=itemLayoutView;
                 txtViewTitle = (TextView) itemLayoutView.findViewById(R.id.item_title);
                 imgViewIcon = (ImageView) itemLayoutView.findViewById(R.id.item_icon);
                 block=(TextView) itemLayoutView.findViewById(R.id.item_block);
                 village=(TextView) itemLayoutView.findViewById(R.id.item_village);
+
             }
         }
 
@@ -253,6 +245,7 @@ public class SchoolsFragment extends Fragment {
         }
     }
 
+
     private void addToMap(String latlong,String title){
         mMap = ((SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.map)).getMap();
 
@@ -269,7 +262,10 @@ public class SchoolsFragment extends Fragment {
         markerOptions.position(position);
         markerOptions.title(title);
         mMap.addMarker(markerOptions);
+
         CameraUpdate cameraPosition = CameraUpdateFactory.newLatLngZoom(position, 6.0f);
+
+
         mMap.animateCamera(cameraPosition);
 
     }
