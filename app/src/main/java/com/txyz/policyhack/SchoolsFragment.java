@@ -2,6 +2,7 @@ package com.txyz.policyhack;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
@@ -15,6 +16,10 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
@@ -91,6 +96,14 @@ public class SchoolsFragment extends Fragment {
                 dialog.show();
             }
         }
+
+        mRecyclerView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+
         return v;
     }
 
@@ -156,4 +169,91 @@ public class SchoolsFragment extends Fragment {
             }
         };
     }
+
+
+    public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
+        ArrayList<ItemData> itemsData;
+        private Context context;
+
+        private int lastPosition = -1;
+
+        public MyAdapter(Context context ,  ArrayList<ItemData> itemsData) {
+            this.itemsData = itemsData;
+            this.context =context;
+        }
+
+        // Create new views (invoked by the layout manager)
+        @Override
+        public ViewHolder onCreateViewHolder(ViewGroup parent,
+                                             int viewType) {
+            // create a new view
+            View itemLayoutView = LayoutInflater.from(parent.getContext())
+                    .inflate(R.layout.item_view, null);
+            // create ViewHolder
+
+            ViewHolder viewHolder = new ViewHolder(itemLayoutView);
+            return viewHolder;
+        }
+
+        // Replace the contents of a view (invoked by the layout manager)
+        @Override
+        public void onBindViewHolder(ViewHolder viewHolder, final int position) {
+
+            // - get data from your itemsData at this position
+            // - replace the contents of the view with that itemsData
+            setAnimation(viewHolder.itemView,position);
+
+            viewHolder.txtViewTitle.setText(itemsData.get(position).getTitle());
+            viewHolder.imgViewIcon.setImageResource(itemsData.get(position).getImageUrl());
+            viewHolder.block.setText(itemsData.get(position).getBlock());
+            viewHolder.village.setText(itemsData.get(position).getVillage());
+
+            viewHolder.imgViewIcon.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(getActivity(), SchoolDetailActivity.class);
+                    intent.putExtra("SCHOOL_ID",list.get(position).getTitle());
+                    intent.putExtra("BLOCK",list.get(position).getBlock());
+                    intent.putExtra("VILLAGE",list.get(position).getVillage());
+                    startActivity(intent);
+                }
+            });
+
+
+        }
+
+        // inner class to hold a reference to each item of RecyclerView
+        public  class ViewHolder extends RecyclerView.ViewHolder {
+
+            public TextView txtViewTitle,block,village;
+            public ImageView imgViewIcon;
+
+            public ViewHolder(View itemLayoutView) {
+                super(itemLayoutView);
+                txtViewTitle = (TextView) itemLayoutView.findViewById(R.id.item_title);
+                imgViewIcon = (ImageView) itemLayoutView.findViewById(R.id.item_icon);
+                block=(TextView) itemLayoutView.findViewById(R.id.item_block);
+                village=(TextView) itemLayoutView.findViewById(R.id.item_village);
+            }
+        }
+
+
+        // Return the size of your itemsData (invoked by the layout manager)
+        @Override
+        public int getItemCount() {
+            return itemsData.size();
+        }
+
+        private void setAnimation(View viewToAnimate, int position)
+        {
+            // If the bound view wasn't previously displayed on screen, it's animated
+            if (position > lastPosition)
+            {
+                Animation animation = AnimationUtils.loadAnimation(context, R.anim.scale);
+                viewToAnimate.startAnimation(animation);
+                lastPosition = position;
+            }
+        }
+    }
+
 }
