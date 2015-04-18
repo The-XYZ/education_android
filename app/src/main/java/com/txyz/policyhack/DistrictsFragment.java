@@ -33,16 +33,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by naman on 22/12/14.
+ * Created by naman on 18/04/15.
  */
-public class MapsFragment extends Fragment {
+public class DistrictsFragment  extends Fragment {
 
     private GoogleMap mMap;
     private int resultCode;
     private RecyclerView mRecyclerView;
-    MyAdapter myAdapter;
+    MyAdapter2 myAdapter;
 
-    ArrayList<ItemData> list = new ArrayList<ItemData>();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -56,7 +55,7 @@ public class MapsFragment extends Fragment {
         mRecyclerView.setHasFixedSize(true);
         fetchData();
 
-        resultCode=GooglePlayServicesUtil.isGooglePlayServicesAvailable(getActivity());
+        resultCode= GooglePlayServicesUtil.isGooglePlayServicesAvailable(getActivity());
         if(resultCode != ConnectionResult.SUCCESS)
         {
             Dialog dialog = GooglePlayServicesUtil.getErrorDialog(resultCode, getActivity(), 69);
@@ -123,23 +122,21 @@ public class MapsFragment extends Fragment {
 
     public void doneFetching(List<ParseObject> objects) {
 
-        ArrayList<ItemData> list = new ArrayList<ItemData>();
-        Log.d("lol",objects.toString());
+        ArrayList<DistrictData> list = new ArrayList<DistrictData>();
+        Log.d("lol", objects.toString());
 
         for (ParseObject item : objects) {
 
-            ItemData itemData = new ItemData();
+            DistrictData itemData = new DistrictData();
             itemData.title= item.getString("SCHOOL_NAME");
             itemData.imageUrl=   R.drawable.rsz_school_one;
             itemData.block= item.getString("BLOCK_NAME");
             itemData.village= item.getString("VILLAGE_NAME");
-            itemData.latlong= item.getString("GEOPOINT");
-
             list.add(itemData);
-
+            Log.d("lol2","lol");
         }
 
-        myAdapter=new MyAdapter(getActivity(),list);
+        myAdapter=new MyAdapter2(getActivity(),list);
 
         mRecyclerView.setAdapter(myAdapter);
         Log.d("lol","lol");
@@ -157,3 +154,4 @@ public class MapsFragment extends Fragment {
         };
     }
 }
+

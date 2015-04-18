@@ -3,14 +3,12 @@ package com.txyz.policyhack;
 /**
  * Created by naman on 18/04/15.
  */
-public class ItemData {
-
+public class DistrictData {
 
     public String title;
     public int imageUrl;
     public String block;
     public String village;
-    public String latlong;
 
 //    public ItemData(String title,int imageUrl,String block,String village){
 //
@@ -21,9 +19,6 @@ public class ItemData {
 //    }
     // getters & setters
 
-    public String getLatlong(){
-        return title;
-    }
     public String getTitle(){
         return title;
     }
@@ -37,4 +32,3 @@ public class ItemData {
         return village;
     }
 }
-
