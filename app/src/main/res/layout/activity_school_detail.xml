@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/flexible_space_image_height"
         android:scaleType="centerCrop"
-        android:src="@drawable/rsz_school_three" />
+        android:src="@drawable/rsz_school_two" />
 
     <View
         android:id="@+id/overlay"
@@ -49,6 +49,16 @@ Consectetuer luctus tempor elit ut dolor ligula, quis dui per dui hendrerit ante
 Quam libero nulla netus eu porta curae, ut nulla bibendum facilisis et urna sed, quis congue vestibulum aliquam interdum etiam. Nulla vel lobortis ullamcorper vitae excepturi, neque urna feugiat lectus vel lacinia" />
         </LinearLayout>
     </com.github.ksoichiro.android.observablescrollview.ObservableScrollView>
+
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        app:popupTheme="@style/Theme.AppCompat.Light.DarkActionBar"
+        app:theme="@style/Toolbar" />
 
     <LinearLayout
         android:layout_width="match_parent"

@@ -5,4 +5,9 @@
     <color name="list_background">#ffffff</color>
     <color name="list_background_pressed">#f5f5f5</color>
     <color name="list_divider">#ffffff</color>
+    <!-- App Main colors -->
+    <color name="colorPrimary">#1976D2</color>
+    <color name="colorPrimaryDark">#747474</color>
+    <color name="colorAccent">#009688</color>
+
 </resources>

@@ -14,11 +14,9 @@
     </style>
 
     <style name="AppThemeNoToolbar" parent="@style/Theme.AppCompat.Light.DarkActionBar">
-
         <item name="android:homeAsUpIndicator">@drawable/ic_back</item>
         <item name="drawerArrowStyle">@style/DrawerArrowStyle</item>
         <item name="colorPrimary">#1976D2</item>
-
         <item name="colorPrimaryDark">#1565c0</item>
         <item name="colorAccent">#009688</item>
 
@@ -28,6 +26,20 @@
     <style name="DrawerArrowStyle" parent="Widget.AppCompat.DrawerArrowToggle">
         <item name="spinBars">true</item>
         <item name="color">@android:color/black</item>
+    </style>
+
+    <style name="Toolbar" parent="Theme.AppCompat">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="SchoolDetailActivity" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+
     </style>
 
 
