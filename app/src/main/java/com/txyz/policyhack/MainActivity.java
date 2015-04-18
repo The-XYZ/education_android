@@ -163,7 +163,7 @@ public class MainActivity extends ActionBarActivity {
                 fragment = new DistrictsFragment();
                 break;
             case 2:
-                fragment = new SchoolsFragment();
+                fragment = new Complaints();
                 break;
 
 
