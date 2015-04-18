@@ -64,33 +64,7 @@ public class SchoolsFragment extends Fragment {
 
             dialog.show();
         }
-        else {
-            mMap = ((SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.map)).getMap();
 
-
-            MarkerOptions markerOptions;
-            LatLng position;
-
-            markerOptions = new MarkerOptions();
-
-            if (isGoogleMapsInstalled()) {
-                position = new LatLng(28.749783333f, 77.1172f);
-                markerOptions.position(position);
-                markerOptions.title("Delhi Technological University");
-                mMap.addMarker(markerOptions);
-                CameraUpdate cameraPosition = CameraUpdateFactory.newLatLngZoom(position, 15.0f);
-                mMap.animateCamera(cameraPosition);
-            }
-            else
-            {
-                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-                builder.setMessage("Please install Google Maps");
-                builder.setCancelable(true);
-                builder.setPositiveButton("Install", getGoogleMapsListener());
-                AlertDialog dialog = builder.create();
-                dialog.show();
-            }
-        }
         return v;
     }
 
@@ -124,7 +98,7 @@ public class SchoolsFragment extends Fragment {
     public void doneFetching(List<ParseObject> objects) {
 
         ArrayList<ItemData> list = new ArrayList<ItemData>();
-        Log.d("lol",objects.toString());
+
 
         for (ParseObject item : objects) {
 
@@ -133,8 +107,9 @@ public class SchoolsFragment extends Fragment {
             itemData.imageUrl=   R.drawable.rsz_school_one;
             itemData.block= item.getString("BLOCK_NAME");
             itemData.village= item.getString("VILLAGE_NAME");
-            itemData.latlong= item.getString("GEOPOINT");
-
+            itemData.latlong= ""+item.getParseGeoPoint("lat").getLatitude()+","+item.getParseGeoPoint("lat").getLongitude();
+            addToMap(itemData.getLatlong().toString(),itemData.getTitle());
+            Log.d("lol",itemData.getLatlong().toString());
             list.add(itemData);
 
         }
@@ -155,5 +130,25 @@ public class SchoolsFragment extends Fragment {
 
             }
         };
+    }
+    private void addToMap(String latlong,String title){
+        mMap = ((SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.map)).getMap();
+
+
+        MarkerOptions markerOptions;
+        LatLng position;
+        String lati=latlong.substring(0,latlong.indexOf(",")),longi=latlong.substring(latlong.indexOf(",")+1,latlong.length());
+        Log.d("lol2",lati+","+longi);
+
+        markerOptions = new MarkerOptions();
+
+
+        position = new LatLng(Double.parseDouble(lati), Double.parseDouble(longi));
+        markerOptions.position(position);
+        markerOptions.title(title);
+        mMap.addMarker(markerOptions);
+        CameraUpdate cameraPosition = CameraUpdateFactory.newLatLngZoom(position, 15.0f);
+        mMap.animateCamera(cameraPosition);
+
     }
 }
