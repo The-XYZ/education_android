@@ -26,6 +26,12 @@ import com.parse.ParseUser;
 
 import java.util.List;
 
+import org.eazegraph.lib.charts.PieChart;
+import org.eazegraph.lib.charts.StackedBarChart;
+import org.eazegraph.lib.models.BarModel;
+import org.eazegraph.lib.models.PieModel;
+import org.eazegraph.lib.models.StackedBarModel;
+
 
 public class SchoolDetailActivity extends ActionBarActivity implements ObservableScrollViewCallbacks {
 
@@ -42,6 +48,9 @@ public class SchoolDetailActivity extends ActionBarActivity implements Observabl
     private int mFlexibleSpaceImageHeight;
     private int mFabMargin;
     private int mToolbarColor;
+    private PieChart mPieChart;
+    private StackedBarChart mStackedBarChart;
+
 
     String Schoolname;
     String Block;
@@ -91,6 +100,84 @@ public class SchoolDetailActivity extends ActionBarActivity implements Observabl
                 //mScrollView.scrollTo(0, 0);
             }
         });
+
+/*        mBarChart = (BarChart) findViewById(R.id.barchart);
+        mBarChart.addBar(new BarModel(2.3f, 0xFF123456));
+        mBarChart.addBar(new BarModel(2.f,  0xFF343456));
+        mBarChart.addBar(new BarModel(3.3f, 0xFF563456));
+        mBarChart.addBar(new BarModel(1.1f, 0xFF873F56));
+        mBarChart.addBar(new BarModel(2.7f, 0xFF56B7F1));
+        mBarChart.addBar(new BarModel(2.f,  0xFF343456));
+        mBarChart.addBar(new BarModel(0.4f, 0xFF1FF4AC));
+        mBarChart.addBar(new BarModel(4.f,  0xFF1BA4E6));
+
+        mBarChart.startAnimation();
+        //mBarChart.canScrollHorizontally(1);*/
+
+       /* mBarChart2 = (BarChart) findViewById(R.id.barchart2);
+        mBarChart2.addBar(new BarModel(2.3f, 0xFF123456));
+        mBarChart2.addBar(new BarModel(2.f,  0xFF343456));
+        mBarChart2.addBar(new BarModel(3.3f, 0xFF563456));
+        mBarChart2.addBar(new BarModel(1.1f, 0xFF873F56));
+        mBarChart2.addBar(new BarModel(2.7f, 0xFF56B7F1));
+        mBarChart2.addBar(new BarModel(2.f,  0xFF343456));
+        mBarChart2.addBar(new BarModel(0.4f, 0xFF1FF4AC));
+        mBarChart2.addBar(new BarModel(4.f,  0xFF1BA4E6));*/
+
+//        mBarChart.startAnimation();
+
+        mStackedBarChart = (StackedBarChart) findViewById(R.id.stackedbarchart);
+
+        StackedBarModel s1 = new StackedBarModel("C1");
+        s1.addBar(new BarModel(2.3f, 0xFF63CBB0));
+        s1.addBar(new BarModel(2.3f, 0xFF56B7F1));
+
+        StackedBarModel s2 = new StackedBarModel("C2");
+        s2.addBar(new BarModel(1.1f, 0xFF63CBB0));
+        s2.addBar(new BarModel(2.7f, 0xFF56B7F1));
+
+        StackedBarModel s3 = new StackedBarModel("C3");
+
+        s3.addBar(new BarModel(2.3f, 0xFF63CBB0));
+        s3.addBar(new BarModel(2.f, 0xFF56B7F1));
+
+        StackedBarModel s4 = new StackedBarModel("C4");
+        s4.addBar(new BarModel(1.f, 0xFF63CBB0));
+        s4.addBar(new BarModel(4.2f, 0xFF56B7F1));
+
+        StackedBarModel s5 = new StackedBarModel("C5");
+        s5.addBar(new BarModel(2.3f, 0xFF63CBB0));
+        s5.addBar(new BarModel(2.3f, 0xFF56B7F1));
+
+        StackedBarModel s6 = new StackedBarModel("C6");
+        s6.addBar(new BarModel(2.3f, 0xFF63CBB0));
+        s6.addBar(new BarModel(2.3f, 0xFF56B7F1));
+
+        StackedBarModel s7 = new StackedBarModel("C7");
+        s7.addBar(new BarModel(2.3f, 0xFF63CBB0));
+        s7.addBar(new BarModel(2.3f, 0xFF56B7F1));
+
+        StackedBarModel s8 = new StackedBarModel("C8");
+        s8.addBar(new BarModel(2.3f, 0xFF63CBB0));
+        s8.addBar(new BarModel(2.3f, 0xFF56B7F1));
+
+        mStackedBarChart.addBar(s1);
+        mStackedBarChart.addBar(s2);
+        mStackedBarChart.addBar(s3);
+        mStackedBarChart.addBar(s4);
+        mStackedBarChart.addBar(s5);
+        mStackedBarChart.addBar(s6);
+        mStackedBarChart.addBar(s7);
+        mStackedBarChart.addBar(s8);
+
+        mStackedBarChart.startAnimation();
+
+        mPieChart = (PieChart) findViewById(R.id.piechart);
+
+        mPieChart.addPieSlice(new PieModel("Male", 15, Color.parseColor("#FE6DA8")));
+        mPieChart.addPieSlice(new PieModel("Female", 25, Color.parseColor("#56B7F1")));
+
+        mPieChart.startAnimation();
 
 
     }

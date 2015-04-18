@@ -17,7 +17,8 @@
         android:layout_height="200dp"
         android:layout_gravity="bottom"
         android:clipToPadding="false"
-        android:paddingBottom="50dp"/>
+        android:paddingBottom="20dp"
+        />
 
 
 </FrameLayout>
