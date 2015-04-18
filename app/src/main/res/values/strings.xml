@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">PolicyHack</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+
+    <string-array name="nav_drawer_items">
+
+        <item >Home</item>
+        <item >Schedule</item>
+        <item >Reach Us</item>
+
+
+
+    </string-array>
+
+
+    <array name="nav_drawer_icons">
+        <item></item>
+        <item></item>
+        <item></item>
+
+
+
+    </array>
+
+</resources>
