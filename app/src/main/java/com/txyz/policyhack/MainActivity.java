@@ -84,6 +84,7 @@ public class MainActivity extends ActionBarActivity {
 
         Toolbar mToolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(mToolbar);
+
         mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout,
                mToolbar,
                 R.string.app_name,

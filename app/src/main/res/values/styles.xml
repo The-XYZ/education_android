@@ -5,10 +5,8 @@
 
         <item name="drawerArrowStyle">@style/DrawerArrowStyle</item>
         <item name="colorPrimary">#1976D2</item>
-        <item name="colorPrimaryDark">#1565c0</item>
+        <item name="colorPrimaryDark">#747474</item>
         <item name="windowActionBar">false</item>
-
-
         <item name="colorAccent">#009688</item>
 
     </style>
@@ -27,7 +25,7 @@
 
     <style name="DrawerArrowStyle" parent="Widget.AppCompat.DrawerArrowToggle">
         <item name="spinBars">true</item>
-        <item name="color">@android:color/white</item>
+        <item name="color">@android:color/black</item>
     </style>
 
 

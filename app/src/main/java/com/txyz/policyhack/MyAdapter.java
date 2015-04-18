@@ -48,6 +48,9 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
 
         viewHolder.txtViewTitle.setText(itemsData[position].getTitle());
         viewHolder.imgViewIcon.setImageResource(itemsData[position].getImageUrl());
+        viewHolder.block.setText(itemsData[position].getBlock());
+        viewHolder.village.setText(itemsData[position].getVillage());
+
 
 
     }
@@ -55,13 +58,15 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     // inner class to hold a reference to each item of RecyclerView
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
-        public TextView txtViewTitle;
+        public TextView txtViewTitle,block,village;
         public ImageView imgViewIcon;
 
         public ViewHolder(View itemLayoutView) {
             super(itemLayoutView);
             txtViewTitle = (TextView) itemLayoutView.findViewById(R.id.item_title);
             imgViewIcon = (ImageView) itemLayoutView.findViewById(R.id.item_icon);
+            block=(TextView) itemLayoutView.findViewById(R.id.item_block);
+            village=(TextView) itemLayoutView.findViewById(R.id.item_village);
         }
     }
 
