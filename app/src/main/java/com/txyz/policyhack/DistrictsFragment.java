@@ -17,6 +17,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
 import com.google.android.gms.common.ConnectionResult;
@@ -59,6 +61,28 @@ public class DistrictsFragment  extends Fragment {
         mRecyclerView=(RecyclerView) v.findViewById(R.id.recycler_view);
         spinner=(Spinner)getActivity().findViewById(R.id.spinner_nav);
         spinner.setVisibility(View.VISIBLE);
+        List<String> list = new ArrayList<String>();
+        list.add("ARUNACHAL PRADESH");
+        list.add("PUDUCHERRY");
+        list.add("JHARKHAND");list.add("HARYANA");list.add("MANIPUR");list.add("GOA");list.add("MEGHALAYA");
+        list.add("CHHATTISGARH");list.add("LAKSHADWEEP");list.add("DAMAN & DIU");list.add("KERALA");list.add("TAMIL NADU");
+        list.add("RAJASTHAN");list.add("DELHI");list.add("UTTAR PRADESH");list.add("NAGALAND");list.add("MAHARASHTRA");
+        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(getActivity(),
+                android.R.layout.simple_spinner_item, list);
+        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(dataAdapter);
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
         toolbar=(Toolbar) getActivity().findViewById(R.id.toolbar);
 
 
