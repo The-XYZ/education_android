@@ -53,6 +53,7 @@ public class SchoolsFragment extends Fragment {
 
     ArrayList<ItemData> list = new ArrayList<ItemData>();
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -133,8 +134,6 @@ public class SchoolsFragment extends Fragment {
 
 
     public void doneFetching(List<ParseObject> objects) {
-
-        ArrayList<ItemData> list = new ArrayList<ItemData>();
 
 
         for (ParseObject item : objects) {

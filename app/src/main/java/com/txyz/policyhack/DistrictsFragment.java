@@ -53,6 +53,10 @@ public class DistrictsFragment  extends Fragment {
     Toolbar toolbar;
 
 
+    ArrayList<DistrictData> list1 = new ArrayList<DistrictData>();
+    ArrayList<DistrictData> list2 = new ArrayList<DistrictData>();
+
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -69,7 +73,9 @@ public class DistrictsFragment  extends Fragment {
 
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false));
         mRecyclerView.setHasFixedSize(true);
-        fetchData();
+        fetchData1();
+        fetchData2();
+
 
         resultCode= GooglePlayServicesUtil.isGooglePlayServicesAvailable(getActivity());
         if(resultCode != ConnectionResult.SUCCESS)
@@ -124,23 +130,33 @@ public class DistrictsFragment  extends Fragment {
         }
     }
 
-    public void fetchData(){
+    public void fetchData1(String StateName){
         ParseQuery<ParseObject> query = new ParseQuery<ParseObject>(
-                "SchoolNames");
-//        query.orderByAscending(ParseTables.Events.CREATED_AT);
-
+                "District2012");
+        query.whereEqualTo("statename",StateName);
         query.findInBackground(new FindCallback<ParseObject>() {
             @Override
             public void done(List<ParseObject> parseObjects, ParseException e) {
-                doneFetching(parseObjects);
+                doneFetching1(parseObjects);
+            }
+        });
+    }
+
+    public void fetchData2(String StateName){
+        ParseQuery<ParseObject> query = new ParseQuery<ParseObject>(
+                "District2013");
+        query.whereEqualTo("statename",StateName);
+        query.findInBackground(new FindCallback<ParseObject>() {
+            @Override
+            public void done(List<ParseObject> parseObjects, ParseException e) {
+                doneFetching2(parseObjects);
             }
         });
     }
 
 
-    public void doneFetching(List<ParseObject> objects) {
+    public void doneFetching1(List<ParseObject> objects) {
 
-        ArrayList<DistrictData> list = new ArrayList<DistrictData>();
         Log.d("lol", objects.toString());
 
         for (ParseObject item : objects) {
@@ -161,16 +177,50 @@ public class DistrictsFragment  extends Fragment {
             itemData.overall_lit= item.getString("overall_lit");
             itemData.female_lit= item.getString("female_lit");
 
-            list.add(itemData);
+            list1.add(itemData);
             Log.d("lol2","lol");
         }
 
-        myAdapter=new MyAdapter2(getActivity(),list);
+        myAdapter=new MyAdapter2(getActivity(),list1);
 
         mRecyclerView.setAdapter(myAdapter);
         Log.d("lol","lol");
 
     }
+
+    public void doneFetching2(List<ParseObject> objects) {
+
+        Log.d("lol", objects.toString());
+
+        for (ParseObject item : objects) {
+
+            DistrictData itemData = new DistrictData();
+
+            itemData.statename= item.getString("statename");
+            itemData.imageUrl=   R.drawable.rsz_school_one;
+            itemData.distname= item.getString("distname");
+            itemData.totschools= item.getString("totschools");
+            itemData.totpopulation= item.getString("totpopulation");
+            itemData.p_06_pop= item.getString("p_06_pop");
+            itemData.p_urb_pop= item.getString("p_urb_pop");
+            itemData.sexratio= item.getString("sexratio");
+            itemData.sexratio_06= item.getString("sexratio_06");
+            itemData.growthrate= item.getString("growthrate");
+            itemData.p_sc_pop= item.getString("p_sc_pop");
+            itemData.overall_lit= item.getString("overall_lit");
+            itemData.female_lit= item.getString("female_lit");
+
+            list2.add(itemData);
+            Log.d("lol2","lol");
+        }
+
+//        myAdapter=new MyAdapter2(getActivity(),list2);
+//
+//        mRecyclerView.setAdapter(myAdapter);
+//        Log.d("lol","lol");
+
+    }
+
     public DialogInterface.OnClickListener getGoogleMapsListener() {
         return new DialogInterface.OnClickListener() {
             @Override
@@ -212,7 +262,7 @@ public class DistrictsFragment  extends Fragment {
 
         // Replace the contents of a view (invoked by the layout manager)
         @Override
-        public void onBindViewHolder(ViewHolder viewHolder, int position) {
+        public void onBindViewHolder(ViewHolder viewHolder, final int position) {
 
             // - get data from your itemsData at this position
             // - replace the contents of the view with that itemsData
@@ -221,6 +271,41 @@ public class DistrictsFragment  extends Fragment {
             viewHolder.disname.setText(itemsData.get(position).getDistname());
             viewHolder.imgViewIcon.setImageResource(itemsData.get(position).getImageUrl());
             viewHolder.state.setText(itemsData.get(position).getStatename());
+
+            viewHolder.imgViewIcon.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(getActivity(), SchoolDetailActivity.class);
+                    intent.putExtra("getDistname1",list1.get(position).getDistname());
+                    intent.putExtra("getFemale_lit1",list1.get(position).getFemale_lit());
+                    intent.putExtra("getOverall_lit1",list1.get(position).getOverall_lit());
+                    intent.putExtra("getGrowthrate1",list1.get(position).getGrowthrate());
+                    intent.putExtra("getP_06_pop1",list1.get(position).getP_06_pop());
+                    intent.putExtra("getP_sc_pop1",list1.get(position).getP_sc_pop());
+                    intent.putExtra("getP_urb_pop1",list1.get(position).getP_urb_pop());
+                    intent.putExtra("getSexratio1",list1.get(position).getSexratio());
+                    intent.putExtra("getSexratio_061",list1.get(position).getSexratio_06());
+                    intent.putExtra("getTotschools1",list1.get(position).getTotschools());
+                    intent.putExtra("getTotpopulation1z",list1.get(position).getTotpopulation());
+
+                    intent.putExtra("getDistname2",list2.get(position).getDistname());
+                    intent.putExtra("getFemale_lit2",list2.get(position).getFemale_lit());
+                    intent.putExtra("getOverall_lit2",list2.get(position).getOverall_lit());
+                    intent.putExtra("getGrowthrate2",list2.get(position).getGrowthrate());
+                    intent.putExtra("getP_06_pop2",list2.get(position).getP_06_pop());
+                    intent.putExtra("getP_sc_pop2",list2.get(position).getP_sc_pop());
+                    intent.putExtra("getP_urb_pop2",list2.get(position).getP_urb_pop());
+                    intent.putExtra("getSexratio2",list2.get(position).getSexratio());
+                    intent.putExtra("getSexratio_062",list2.get(position).getSexratio_06());
+                    intent.putExtra("getTotschools2",list2.get(position).getTotschools());
+                    intent.putExtra("getTotpopulation2z",list2.get(position).getTotpopulation());
+
+                    startActivity(intent);
+                }
+            });
+
+
+
         }
 
         // inner class to hold a reference to each item of RecyclerView
