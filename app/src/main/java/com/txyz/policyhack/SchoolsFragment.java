@@ -190,9 +190,9 @@ public class SchoolsFragment extends Fragment {
                 @Override
                 public void onClick(View view) {
                     Intent intent = new Intent(getActivity(), SchoolDetailActivity.class);
-//                    intent.putExtra("SCHOOL_ID",list.get(position).getTitle());
-//                    intent.putExtra("BLOCK",list.get(position).getBlock());
-//                    intent.putExtra("VILLAGE",list.get(position).getVillage());
+                    intent.putExtra("SCHOOL_ID",list.get(position).getTitle());
+                    intent.putExtra("BLOCK",list.get(position).getBlock());
+                    intent.putExtra("VILLAGE",list.get(position).getVillage());
                     startActivity(intent);
                 }
             });

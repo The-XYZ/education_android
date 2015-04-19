@@ -30,4 +30,5 @@ dependencies {
     compile 'com.github.ksoichiro:android-observablescrollview:1.5.0'
     compile 'com.nineoldandroids:library:2.4.0'
     compile 'com.github.blackfizz:eazegraph:1.2.2@aar'
+    compile 'com.lid.labelview:lib:0.1.1'
 }
