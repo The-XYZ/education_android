@@ -21,6 +21,18 @@
         <item name="colorAccent">#009688</item>
 
     </style>
+    <style name="AppTheme.SplashScreen" parent="@style/Theme.AppCompat.Light.NoActionBar">
+
+
+        <item name="drawerArrowStyle">@style/DrawerArrowStyle</item>
+        <item name="colorPrimary">#1976D2</item>
+        <item name="colorPrimaryDark">#747474</item>
+        <item name="windowActionBar">false</item>
+        <item name="colorAccent">#009688</item>
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:windowTranslucentNavigation">true</item>
+
+    </style>
 
 
     <style name="DrawerArrowStyle" parent="Widget.AppCompat.DrawerArrowToggle">

@@ -55,7 +55,7 @@
             android:name=".SplashScreen"
             android:noHistory="true"
             android:screenOrientation="portrait"
-            android:theme="@style/AppThemeNoToolbar" >
+            android:theme="@style/AppTheme.SplashScreen" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

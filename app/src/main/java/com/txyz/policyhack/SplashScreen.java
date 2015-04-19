@@ -7,16 +7,14 @@ import android.os.Handler;
 import android.view.WindowManager;
 import android.widget.TextView;
 
-import java.io.IOException;
-import java.io.OutputStreamWriter;
-
 public class SplashScreen extends Activity {
 
     TextView t ;
+    private SvgAnimator mSvgAnimator;
 
 
 
-    private final int SPLASH_DISPLAY_LENGHT = 5000;
+    private final int SPLASH_DISPLAY_LENGHT = 4000;
 
     /** Called when the activity is first created. */
     @Override
@@ -28,6 +26,8 @@ public class SplashScreen extends Activity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_splash_screen);
+        mSvgAnimator = (SvgAnimator) findViewById(R.id.oat);
+        mSvgAnimator.setSvgResource(R.drawable.oat);
 
 
 
