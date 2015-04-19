@@ -57,6 +57,8 @@ public class SchoolDetailActivity extends ActionBarActivity implements Observabl
     private PieChart mPieChart;
     private StackedBarChart mStackedBarChart;
 
+    TextView SchoolName ,  SchoolAddress;
+
 
     String Schoolname;
     String Block;
@@ -69,8 +71,17 @@ public class SchoolDetailActivity extends ActionBarActivity implements Observabl
 
         setSupportActionBar((Toolbar) findViewById(R.id.toolbar));
 
-        Intent intent = getIntent();
-        intent.getStringExtra("S");
+
+        SchoolName = (TextView)findViewById(R.id.Schoolname);
+        SchoolAddress = (TextView)findViewById(R.id.SchoolAddress);
+
+        Intent i= getIntent();
+        String name= i.getStringExtra("SCHOOL_NAME");
+        String block= i.getStringExtra("BLOCK");
+        String village= i.getStringExtra("VILLAGE");
+
+        SchoolName.setText(name);
+        SchoolAddress.setText(block + ", " + village);
 
         mFlexibleSpaceImageHeight = getResources().getDimensionPixelSize(R.dimen.flexible_space_image_height);
         mActionBarSize = getActionBarSize();
