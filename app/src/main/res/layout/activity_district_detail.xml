@@ -39,7 +39,41 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:id="@+id/Disname"
+                    android:text="Gb School"
+                    android:paddingLeft="15dp"
+                    android:background="#ffffff"
+                    android:textSize="15sp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:textStyle="bold"
+
+                    />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:id="@+id/StateName"
+                    android:text="Rega, Rai Bareli"
+                    android:paddingLeft="15dp"
+                    android:background="#ffffff"
+                    android:textSize="15sp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="10dp"
+
+
+                    />
+
+
                 <android.support.v7.widget.CardView
+                    android:id="@+id/cardview_2012"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="15dp"
@@ -54,7 +88,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="50dp"
                             android:padding="10dp"
-                            android:text="Teacher's Info"
+                            android:text="State Name"
                             android:textSize="25sp"
                             android:textStyle="bold"
                             android:layout_gravity="center_horizontal"
@@ -62,306 +96,356 @@
 
                         <ImageView
                             android:layout_width="match_parent"
-                            android:layout_height="300dp"
+                            android:layout_height="250dp"
                             android:scaleType="centerCrop"
                             android:src="@drawable/rsz_school_one"/>
 
+
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="50dp"
                             android:padding="10dp"
-                            android:text="Teacher's Name : "
+                            android:text="District Name : "
                             android:textSize="20sp"
+                            android:textStyle="italic|bold"
+                            android:gravity="center_horizontal"/>
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:weightSum="2">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="50dp"
+                                android:layout_weight="1"
+                                android:padding="10dp"
+                                android:text="Total schools : "
+                                android:textSize="15sp"
+                                android:textStyle="normal"/>
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="50dp"
+                                android:layout_weight="1"
+                                android:padding="10dp"
+                                android:text="Total population : "
+                                android:textSize="15sp"
+                                android:textStyle="normal"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:weightSum="2">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="50dp"
+                                android:layout_weight="1"
+                                android:padding="10dp"
+                                android:text="% 0-6 population : "
+                                android:textSize="15sp"
+                                android:textStyle="normal"/>
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="50dp"
+                                android:layout_weight="1"
+                                android:padding="10dp"
+                                android:text="% Urban population : "
+                                android:textSize="15sp"
+                                android:textStyle="normal"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:weightSum="2">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="50dp"
+                                android:layout_weight="1"
+                                android:padding="10dp"
+                                android:text="Sex-ratio : "
+                                android:textSize="15sp"
+                                android:textStyle="normal"/>
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="50dp"
+                                android:layout_weight="1"
+                                android:padding="10dp"
+                                android:text="Sex-ratio(0-6) : "
+                                android:textSize="15sp"
+                                android:textStyle="normal"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:weightSum="2">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="50dp"
+                                android:layout_weight="1"
+                                android:padding="10dp"
+                                android:text="% SC population : "
+                                android:textSize="15sp"
+                                android:textStyle="normal"/>
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="50dp"
+                                android:layout_weight="1"
+                                android:padding="10dp"
+                                android:text="% ST population : "
+                                android:textSize="15sp"
+                                android:textStyle="normal"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:weightSum="2">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="50dp"
+                                android:layout_weight="1"
+                                android:padding="10dp"
+                                android:text="Overall literacy : "
+                                android:textSize="15sp"
+                                android:textStyle="normal"/>
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="50dp"
+                                android:layout_weight="1"
+                                android:padding="10dp"
+                                android:text="Female literacy : "
+                                android:textSize="15sp"
+                                android:textStyle="normal"/>
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/cardview_2013"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="15dp"
+                    android:padding="20dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:padding="10dp"
+                            android:text="State Name"
+                            android:textSize="25sp"
+                            android:textStyle="bold"
+                            android:layout_gravity="center_horizontal"
+                            android:gravity="center_horizontal"/>
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="250dp"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/rsz_school_two"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:padding="10dp"
+                            android:text="District Name : "
+                            android:textSize="20sp"
+                            android:textStyle="italic|bold"
+                            android:gravity="center_horizontal"/>
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:weightSum="2">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="50dp"
+                                android:layout_weight="1"
+                                android:padding="10dp"
+                                android:text="Total schools : "
+                                android:textSize="15sp"
+                                android:textStyle="normal"/>
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="50dp"
+                                android:layout_weight="1"
+                                android:padding="10dp"
+                                android:text="Total population : "
+                                android:textSize="15sp"
+                                android:textStyle="normal"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:weightSum="2">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="50dp"
+                                android:layout_weight="1"
+                                android:padding="10dp"
+                                android:text="% 0-6 population : "
+                                android:textSize="15sp"
+                                android:textStyle="normal"/>
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="50dp"
+                                android:layout_weight="1"
+                                android:padding="10dp"
+                                android:text="% Urban population : "
+                                android:textSize="15sp"
+                                android:textStyle="normal"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:weightSum="2">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="50dp"
+                                android:layout_weight="1"
+                                android:padding="10dp"
+                                android:text="Sex-ratio : "
+                                android:textSize="15sp"
+                                android:textStyle="normal"/>
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="50dp"
+                                android:layout_weight="1"
+                                android:padding="10dp"
+                                android:text="Sex-ratio(0-6) : "
+                                android:textSize="15sp"
+                                android:textStyle="normal"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:weightSum="2">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="50dp"
+                                android:layout_weight="1"
+                                android:padding="10dp"
+                                android:text="% SC population : "
+                                android:textSize="15sp"
+                                android:textStyle="normal"/>
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="50dp"
+                                android:layout_weight="1"
+                                android:padding="10dp"
+                                android:text="% ST population : "
+                                android:textSize="15sp"
+                                android:textStyle="normal"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:weightSum="2">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="50dp"
+                                android:layout_weight="1"
+                                android:padding="10dp"
+                                android:text="Overall literacy : "
+                                android:textSize="15sp"
+                                android:textStyle="normal"/>
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="50dp"
+                                android:layout_weight="1"
+                                android:padding="10dp"
+                                android:text="Female literacy : "
+                                android:textSize="15sp"
+                                android:textStyle="normal"/>
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="15dp"
+                    android:padding="20dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:padding="10dp"
+                            android:text="Year wise comparison"
+                            android:textSize="25sp"
+                            android:textStyle="bold"
+                            android:gravity="center_horizontal"/>
+
+                        <org.eazegraph.lib.charts.StackedBarChart
+                            xmlns:app="http://schemas.android.com/apk/res-auto"
+                            android:id="@+id/stackedbarchart"
+                            android:layout_width="match_parent"
+                            android:layout_height="256dp"
+                            android:padding="10dp"
+                            app:egFixedBarWidth="true"
+                            app:egBarWidth="20dp"
+                            app:egLegendHeight="40dp"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:padding="10dp"
+                            android:text="From 2012-2013 "
+                            android:textSize="8sp"
                             android:textStyle="italic"
-                            android:theme="@style/SchoolDetailActivity"/>
-
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:weightSum="2">
-
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="50dp"
-                            android:layout_weight="1"
-                            android:padding="10dp"
-                            android:text="created at : "
-                            android:textSize="15sp"
-                            android:textStyle="normal"/>
-
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="50dp"
-                            android:layout_weight="1"
-                            android:padding="10dp"
-                            android:text="updated at : "
-                            android:textSize="15sp"
-                            android:textStyle="normal"/>
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:weightSum="2">
-
-                            <TextView
-                                android:layout_width="0dp"
-                                android:layout_height="50dp"
-                                android:layout_weight="1"
-                                android:padding="10dp"
-                                android:text="created at : "
-                                android:textSize="15sp"
-                                android:textStyle="normal"/>
-
-                            <TextView
-                                android:layout_width="0dp"
-                                android:layout_height="50dp"
-                                android:layout_weight="1"
-                                android:padding="10dp"
-                                android:text="updated at : "
-                                android:textSize="15sp"
-                                android:textStyle="normal"/>
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:weightSum="2">
-
-                            <TextView
-                                android:layout_width="0dp"
-                                android:layout_height="50dp"
-                                android:layout_weight="1"
-                                android:padding="10dp"
-                                android:text="created at : "
-                                android:textSize="15sp"
-                                android:textStyle="normal"/>
-
-                            <TextView
-                                android:layout_width="0dp"
-                                android:layout_height="50dp"
-                                android:layout_weight="1"
-                                android:padding="10dp"
-                                android:text="updated at : "
-                                android:textSize="15sp"
-                                android:textStyle="normal"/>
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:weightSum="2">
-
-                            <TextView
-                                android:layout_width="0dp"
-                                android:layout_height="50dp"
-                                android:layout_weight="1"
-                                android:padding="10dp"
-                                android:text="created at : "
-                                android:textSize="15sp"
-                                android:textStyle="normal"/>
-
-                            <TextView
-                                android:layout_width="0dp"
-                                android:layout_height="50dp"
-                                android:layout_weight="1"
-                                android:padding="10dp"
-                                android:text="updated at : "
-                                android:textSize="15sp"
-                                android:textStyle="normal"/>
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:weightSum="2">
-
-                            <TextView
-                                android:layout_width="0dp"
-                                android:layout_height="50dp"
-                                android:layout_weight="1"
-                                android:padding="10dp"
-                                android:text="created at : "
-                                android:textSize="15sp"
-                                android:textStyle="normal"/>
-
-                            <TextView
-                                android:layout_width="0dp"
-                                android:layout_height="50dp"
-                                android:layout_weight="1"
-                                android:padding="10dp"
-                                android:text="updated at : "
-                                android:textSize="15sp"
-                                android:textStyle="normal"/>
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:weightSum="2">
-
-                            <TextView
-                                android:layout_width="0dp"
-                                android:layout_height="50dp"
-                                android:layout_weight="1"
-                                android:padding="10dp"
-                                android:text="Female literacy : "
-                                android:textSize="15sp"
-                                android:textStyle="normal"/>
-
-                            <TextView
-                                android:layout_width="0dp"
-                                android:layout_height="50dp"
-                                android:layout_weight="1"
-                                android:padding="10dp"
-                                android:text="Female literacy : "
-                                android:textSize="15sp"
-                                android:textStyle="normal"/>
-                        </LinearLayout>
+                            android:gravity="center_horizontal"/>
 
                     </LinearLayout>
                 </android.support.v7.widget.CardView>
-
-                <android.support.v7.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="15dp"
-                    android:padding="20dp">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="50dp"
-                            android:padding="10dp"
-                            android:text="Enrollment"
-                            android:textSize="25sp"
-                            android:textStyle="bold"/>
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="50dp"
-                            android:padding="10dp"
-                            android:text="Academic year : "
-                            android:textSize="15sp"
-                            android:textStyle="italic"/>
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:weightSum="2">
-
-                            <TextView
-                                android:layout_width="0dp"
-                                android:layout_height="50dp"
-                                android:layout_weight="1"
-                                android:padding="10dp"
-                                android:text="created at : "
-                                android:textSize="15sp"
-                                android:textStyle="normal"/>
-
-                            <TextView
-                                android:layout_width="0dp"
-                                android:layout_height="50dp"
-                                android:layout_weight="1"
-                                android:padding="10dp"
-                                android:text="updated at : "
-                                android:textSize="15sp"
-                                android:textStyle="normal"/>
-
-                        </LinearLayout>
-
-
-                    </LinearLayout>
-                </android.support.v7.widget.CardView>
-
-                <android.support.v7.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="15dp"
-                    android:padding="20dp">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="50dp"
-                            android:padding="10dp"
-                            android:text="RTE portal"
-                            android:textSize="25sp"
-                            android:textStyle="bold"/>
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:weightSum="2">
-
-                            <TextView
-                                android:layout_width="0dp"
-                                android:layout_weight="1"
-                                android:layout_height="65dp"
-                                android:padding="10dp"
-                                android:text="Academic starting month : "
-                                android:textSize="15sp"
-                                android:textStyle="normal"/>
-
-                            <TextView
-                                android:layout_width="0dp"
-                                android:layout_weight="1"
-                                android:layout_height="65dp"
-                                android:padding="10dp"
-                                android:text="Academic starting year : "
-                                android:textSize="15sp"
-                                android:textStyle="normal"/>
-
-                        </LinearLayout>
-
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:weightSum="2">
-
-                            <TextView
-                                android:layout_width="0dp"
-                                android:layout_height="50dp"
-                                android:layout_weight="1"
-                                android:padding="10dp"
-                                android:text="Benefited boys : "
-                                android:textSize="15sp"
-                                android:textStyle="normal"/>
-
-                            <TextView
-                                android:layout_width="0dp"
-                                android:layout_height="50dp"
-                                android:layout_weight="1"
-                                android:padding="10dp"
-                                android:text="Benefited girls : "
-                                android:textSize="15sp"
-                                android:textStyle="normal"/>
-
-                        </LinearLayout>
-
-
-                    </LinearLayout>
-                </android.support.v7.widget.CardView>
-
 
             </LinearLayout>
 

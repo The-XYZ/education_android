@@ -1,5 +1,10 @@
 package com.txyz.policyhack;
 
+
+import android.animation.TimeInterpolator;
+
+import android.content.Intent;
+
 import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -9,19 +14,29 @@ import android.util.TypedValue;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.AccelerateInterpolator;
+import android.view.animation.DecelerateInterpolator;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.github.ksoichiro.android.observablescrollview.ObservableScrollView;
 import com.github.ksoichiro.android.observablescrollview.ObservableScrollViewCallbacks;
 import com.github.ksoichiro.android.observablescrollview.ScrollState;
 import com.github.ksoichiro.android.observablescrollview.ScrollUtils;
+import com.lid.lib.LabelView;
 import com.nineoldandroids.view.ViewHelper;
+
+import org.eazegraph.lib.charts.StackedBarChart;
+import org.eazegraph.lib.models.BarModel;
+import org.eazegraph.lib.models.StackedBarModel;
 
 
 public class DistrictDetailActivity extends ActionBarActivity implements ObservableScrollViewCallbacks {
 
     private static final float MAX_TEXT_SCALE_DELTA = 0.3f;
     private static final boolean TOOLBAR_IS_STICKY = false;
+    private final TimeInterpolator enterInterpolator = new DecelerateInterpolator(1.5f);
+    private final TimeInterpolator exitInterpolator = new AccelerateInterpolator();
 
     private View mToolbar;
     private View mImageView;
@@ -30,8 +45,39 @@ public class DistrictDetailActivity extends ActionBarActivity implements Observa
     private TextView mTitleView;
     private int mActionBarSize;
     private int mFlexibleSpaceImageHeight;
-    private int mFabMargin;
     private int mToolbarColor;
+    private StackedBarChart mStackedBarChart;
+
+
+
+    String statename1;
+    String distname1;
+    String totschools1;
+    String totpopulation1;
+    String p_06_pop1;
+    String p_urb_pop1;
+    String sexratio1;
+    String sexratio_061;
+    String growthrate1;
+    String p_sc_pop1;
+    String overall_lit1;
+    String female_lit1;
+
+    String statename2;
+    String distname2;
+    String totschools2;
+    String totpopulation2;
+    String p_06_pop2;
+    String p_urb_pop2;
+    String sexratio2;
+    String sexratio_062;
+    String growthrate2;
+    String p_sc_pop2;
+    String overall_lit2;
+    String female_lit2;
+
+    TextView DisName,  StateName;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,8 +86,20 @@ public class DistrictDetailActivity extends ActionBarActivity implements Observa
 
         setSupportActionBar((Toolbar) findViewById(R.id.toolbar));
 
-//        Intent intent = getIntent();
-//        intent.getStringExtra("S");
+
+        DisName = (TextView)findViewById(R.id.Disname);
+        StateName = (TextView)findViewById(R.id.StateName);
+
+
+        final LabelView label = new LabelView(this);
+        label.setText("2012");
+        label.setBackgroundColor(Color.parseColor("#FF9800"));
+        label.setTargetView(findViewById(R.id.cardview_2012), 10, LabelView.Gravity.RIGHT_TOP);
+
+        final LabelView label2 = new LabelView(this);
+        label2.setText("2013");
+        label2.setBackgroundColor(Color.parseColor("#FF9800"));
+        label2.setTargetView(findViewById(R.id.cardview_2013), 10, LabelView.Gravity.RIGHT_TOP);
 
         mFlexibleSpaceImageHeight = getResources().getDimensionPixelSize(R.dimen.flexible_space_image_height);
         mActionBarSize = getActionBarSize();
@@ -51,6 +109,43 @@ public class DistrictDetailActivity extends ActionBarActivity implements Observa
         if (!TOOLBAR_IS_STICKY) {
             mToolbar.setBackgroundColor(Color.TRANSPARENT);
         }
+
+        Intent i= getIntent();
+        statename2= i.getStringExtra("statename2");
+        distname2= i.getStringExtra("distname2");
+        totschools2= i.getStringExtra("totschools2");
+        totpopulation2= i.getStringExtra("totpopulation2");
+        p_06_pop2= i.getStringExtra("p_06_pop2");
+        p_urb_pop2= i.getStringExtra("p_urb_pop2");
+        sexratio2= i.getStringExtra("sexratio2");
+        sexratio_062= i.getStringExtra("sexratio_062");
+        growthrate2= i.getStringExtra("growthrate2");
+        p_sc_pop2= i.getStringExtra("p_sc_pop2");
+
+        Toast.makeText(getApplicationContext(), p_sc_pop2,Toast.LENGTH_LONG).show();
+        overall_lit2= i.getStringExtra("overall_lit2");
+        female_lit2= i.getStringExtra("female_lit2");
+
+
+        statename1= i.getStringExtra("statename1");
+        distname1= i.getStringExtra("distname1");
+        totschools1= i.getStringExtra("totschools1");
+        totpopulation1= i.getStringExtra("totpopulation1");
+        p_06_pop1= i.getStringExtra("p_06_pop1");
+        p_urb_pop1= i.getStringExtra("p_urb_pop1");
+        sexratio1= i.getStringExtra("sexratio1");
+        sexratio_061= i.getStringExtra("sexratio_061");
+        growthrate1= i.getStringExtra("growthrate1");
+        p_sc_pop1= i.getStringExtra("p_sc_pop1");
+        Toast.makeText(getApplicationContext(), p_sc_pop1,Toast.LENGTH_LONG).show();
+
+        overall_lit1= i.getStringExtra("overall_lit1");
+        female_lit1= i.getStringExtra("female_lit1");
+
+
+        DisName.setText(distname1);
+        StateName.setText(statename1);
+
         mImageView = findViewById(R.id.image);
         mOverlayView = findViewById(R.id.overlay);
         mScrollView = (ObservableScrollView) findViewById(R.id.scroll);
@@ -76,6 +171,64 @@ public class DistrictDetailActivity extends ActionBarActivity implements Observa
                 //mScrollView.scrollTo(0, 0);
             }
         });
+
+        mStackedBarChart = (StackedBarChart) findViewById(R.id.stackedbarchart);
+
+        StackedBarModel s1 = new StackedBarModel("Total schools");
+        s1.addBar(new BarModel(2.3f, 0xFF63CBB0));
+        s1.addBar(new BarModel(2.3f, 0xFF56B7F1));
+
+        StackedBarModel s2 = new StackedBarModel("Total pop.");
+        s2.addBar(new BarModel(1.1f, 0xFF63CBB0));
+        s2.addBar(new BarModel(2.7f, 0xFF56B7F1));
+
+        StackedBarModel s3 = new StackedBarModel("%(0-6) pop.");
+
+        s3.addBar(new BarModel(2.3f, 0xFF63CBB0));
+        s3.addBar(new BarModel(2.f, 0xFF56B7F1));
+
+        StackedBarModel s4 = new StackedBarModel("% urban pop.");
+        s4.addBar(new BarModel(1.f, 0xFF63CBB0));
+        s4.addBar(new BarModel(4.2f, 0xFF56B7F1));
+
+        StackedBarModel s5 = new StackedBarModel("sex ratio");
+        s5.addBar(new BarModel(2.3f, 0xFF63CBB0));
+        s5.addBar(new BarModel(2.3f, 0xFF56B7F1));
+
+        StackedBarModel s6 = new StackedBarModel("sex ratio(0-6)");
+        s6.addBar(new BarModel(2.3f, 0xFF63CBB0));
+        s6.addBar(new BarModel(2.3f, 0xFF56B7F1));
+
+        StackedBarModel s7 = new StackedBarModel("% SC pop.");
+        s7.addBar(new BarModel(2.3f, 0xFF63CBB0));
+        s7.addBar(new BarModel(2.3f, 0xFF56B7F1));
+
+        StackedBarModel s8 = new StackedBarModel("% ST pop.");
+        s8.addBar(new BarModel(1.1f, 0xFF63CBB0));
+        s8.addBar(new BarModel(2.7f, 0xFF56B7F1));
+
+        StackedBarModel s9 = new StackedBarModel("overall pop.");
+
+        s9.addBar(new BarModel(2.3f, 0xFF63CBB0));
+        s9.addBar(new BarModel(2.f, 0xFF56B7F1));
+
+        StackedBarModel s10 = new StackedBarModel("female pop.");
+        s10.addBar(new BarModel(1.f, 0xFF63CBB0));
+        s10.addBar(new BarModel(4.2f, 0xFF56B7F1));
+
+        mStackedBarChart.addBar(s1);
+        mStackedBarChart.addBar(s2);
+        mStackedBarChart.addBar(s3);
+        mStackedBarChart.addBar(s4);
+        mStackedBarChart.addBar(s5);
+        mStackedBarChart.addBar(s6);
+        mStackedBarChart.addBar(s7);
+        mStackedBarChart.addBar(s8);
+        mStackedBarChart.addBar(s9);
+        mStackedBarChart.addBar(s10);
+
+        mStackedBarChart.startAnimation();
+        //mStackedBarChart.setPaddingRelative();
 
     }
 
@@ -130,6 +283,7 @@ public class DistrictDetailActivity extends ActionBarActivity implements Observa
     @Override
     public void onUpOrCancelMotionEvent(ScrollState scrollState) {
     }
+
     protected int getActionBarSize() {
         TypedValue typedValue = new TypedValue();
         int[] textSizeAttr = new int[]{R.attr.actionBarSize};
@@ -139,7 +293,6 @@ public class DistrictDetailActivity extends ActionBarActivity implements Observa
         a.recycle();
         return actionBarSize;
     }
-
 
 
     @Override
@@ -163,4 +316,7 @@ public class DistrictDetailActivity extends ActionBarActivity implements Observa
 
         return super.onOptionsItemSelected(item);
     }
+
+
+
 }
