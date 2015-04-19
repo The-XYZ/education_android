@@ -62,12 +62,19 @@ public class DistrictDetailActivity extends ActionBarActivity implements Observa
     String overall_lit2;
     String female_lit2;
 
+    TextView DisName,  StateName;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_district_detail);
 
         setSupportActionBar((Toolbar) findViewById(R.id.toolbar));
+
+
+        DisName = (TextView)findViewById(R.id.Disname);
+        StateName = (TextView)findViewById(R.id.StateName);
 
 
         mFlexibleSpaceImageHeight = getResources().getDimensionPixelSize(R.dimen.flexible_space_image_height);
@@ -110,6 +117,10 @@ public class DistrictDetailActivity extends ActionBarActivity implements Observa
 
         overall_lit1= i.getStringExtra("overall_lit1");
         female_lit1= i.getStringExtra("female_lit1");
+
+
+        DisName.setText(distname1);
+        StateName.setText(statename1);
 
         mImageView = findViewById(R.id.image);
         mOverlayView = findViewById(R.id.overlay);
