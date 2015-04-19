@@ -66,22 +66,31 @@ public class DistrictsFragment  extends Fragment {
         mRecyclerView=(RecyclerView) v.findViewById(R.id.recycler_view);
         spinner=(Spinner)getActivity().findViewById(R.id.spinner_nav);
         spinner.setVisibility(View.VISIBLE);
-        final List<String> list = new ArrayList<String>();
-        list.add("ARUNACHAL PRADESH");
-        list.add("PUDUCHERRY");
-        list.add("JHARKHAND");list.add("HARYANA");list.add("MANIPUR");list.add("GOA");list.add("MEGHALAYA");
-        list.add("CHHATTISGARH");list.add("LAKSHADWEEP");list.add("DAMAN & DIU");list.add("KERALA");list.add("TAMIL NADU");
-        list.add("RAJASTHAN");list.add("DELHI");list.add("UTTAR PRADESH");list.add("NAGALAND");list.add("MAHARASHTRA");
+        final List<String> lista = new ArrayList<String>();
+        lista.add("ARUNACHAL PRADESH");
+        lista.add("PUDUCHERRY");
+        lista.add("JHARKHAND");lista.add("HARYANA");lista.add("MANIPUR");lista.add("GOA");lista.add("MEGHALAYA");
+        lista.add("CHHATTISGARH");lista.add("LAKSHADWEEP");lista.add("KERALA");lista.add("TAMIL NADU");
+        lista.add("RAJASTHAN");lista.add("DELHI");lista.add("UTTAR PRADESH");lista.add("NAGALAND");lista.add("MAHARASHTRA");
+
+        final List<String> listb = new ArrayList<String>();
+        listb.add("Arunachal Pradesh");
+        listb.add("Puducherry");
+        listb.add("Jharkhand");listb.add("Haryana");listb.add("Manipur");listb.add("Goa");listb.add("Meghalaya");
+        listb.add("Chhattisgarh");listb.add("Lakshadweep");listb.add("Kerala");listb.add("Tamil Nadu");
+        listb.add("Rajasthan");listb.add("Delhi");listb.add("Uttar Pradesh");listb.add("Nagaland");listb.add("Maharashtra");
+
+
         ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(getActivity(),
-                android.R.layout.simple_spinner_item, list);
+                android.R.layout.simple_spinner_item, lista);
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(dataAdapter);
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
 
-                fetchData1(list.get(i));
-                fetchData2(list.get(i));
+                fetchData1(listb.get(i));
+                fetchData2(lista.get(i));
 
             }
 
