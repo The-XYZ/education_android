@@ -90,7 +90,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="50dp"
                             android:padding="10dp"
-                            android:text="State Name"
+                            android:text="Changlang"
                             android:textSize="25sp"
                             android:textStyle="bold"
                             android:layout_gravity="center_horizontal"
@@ -108,7 +108,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="50dp"
                             android:padding="10dp"
-                            android:text="District Name : "
+                            android:text="Arunachal Pradesh"
                             android:textSize="20sp"
                             android:textStyle="italic|bold"
                             android:gravity="center_horizontal"/>
@@ -125,7 +125,7 @@
                                 android:layout_height="50dp"
                                 android:layout_weight="1"
                                 android:padding="10dp"
-                                android:text="Total schools : "
+                                android:text="Total schools :71 "
                                 android:textSize="15sp"
                                 android:textStyle="normal"/>
 
@@ -134,32 +134,7 @@
                                 android:layout_height="50dp"
                                 android:layout_weight="1"
                                 android:padding="10dp"
-                                android:text="Total population : "
-                                android:textSize="15sp"
-                                android:textStyle="normal"/>
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:weightSum="2">
-
-                            <TextView
-                                android:layout_width="0dp"
-                                android:layout_height="50dp"
-                                android:layout_weight="1"
-                                android:padding="10dp"
-                                android:text="% 0-6 population : "
-                                android:textSize="15sp"
-                                android:textStyle="normal"/>
-
-                            <TextView
-                                android:layout_width="0dp"
-                                android:layout_height="50dp"
-                                android:layout_weight="1"
-                                android:padding="10dp"
-                                android:text="% Urban population : "
+                                android:text="Total population :6394 "
                                 android:textSize="15sp"
                                 android:textStyle="normal"/>
                         </LinearLayout>
@@ -175,7 +150,7 @@
                                 android:layout_height="50dp"
                                 android:layout_weight="1"
                                 android:padding="10dp"
-                                android:text="Sex-ratio : "
+                                android:text="% 0-6 population :29 "
                                 android:textSize="15sp"
                                 android:textStyle="normal"/>
 
@@ -184,32 +159,7 @@
                                 android:layout_height="50dp"
                                 android:layout_weight="1"
                                 android:padding="10dp"
-                                android:text="Sex-ratio(0-6) : "
-                                android:textSize="15sp"
-                                android:textStyle="normal"/>
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:weightSum="2">
-
-                            <TextView
-                                android:layout_width="0dp"
-                                android:layout_height="50dp"
-                                android:layout_weight="1"
-                                android:padding="10dp"
-                                android:text="% SC population : "
-                                android:textSize="15sp"
-                                android:textStyle="normal"/>
-
-                            <TextView
-                                android:layout_width="0dp"
-                                android:layout_height="50dp"
-                                android:layout_weight="1"
-                                android:padding="10dp"
-                                android:text="% ST population : "
+                                android:text="% Urban population :52 "
                                 android:textSize="15sp"
                                 android:textStyle="normal"/>
                         </LinearLayout>
@@ -225,7 +175,7 @@
                                 android:layout_height="50dp"
                                 android:layout_weight="1"
                                 android:padding="10dp"
-                                android:text="Overall literacy : "
+                                android:text="Sex-ratio :1.1 "
                                 android:textSize="15sp"
                                 android:textStyle="normal"/>
 
@@ -234,7 +184,57 @@
                                 android:layout_height="50dp"
                                 android:layout_weight="1"
                                 android:padding="10dp"
-                                android:text="Female literacy : "
+                                android:text="Sex-ratio(0-6) : 1.06"
+                                android:textSize="15sp"
+                                android:textStyle="normal"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:weightSum="2">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="50dp"
+                                android:layout_weight="1"
+                                android:padding="10dp"
+                                android:text="% SC population :15 "
+                                android:textSize="15sp"
+                                android:textStyle="normal"/>
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="50dp"
+                                android:layout_weight="1"
+                                android:padding="10dp"
+                                android:text="% ST population : 07"
+                                android:textSize="15sp"
+                                android:textStyle="normal"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:weightSum="2">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="50dp"
+                                android:layout_weight="1"
+                                android:padding="10dp"
+                                android:text="Overall literacy :89% "
+                                android:textSize="15sp"
+                                android:textStyle="normal"/>
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="50dp"
+                                android:layout_weight="1"
+                                android:padding="10dp"
+                                android:text="Female literacy :86% "
                                 android:textSize="15sp"
                                 android:textStyle="normal"/>
                         </LinearLayout>
@@ -258,7 +258,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="50dp"
                             android:padding="10dp"
-                            android:text="State Name"
+                            android:text="Changlang"
                             android:textSize="25sp"
                             android:textStyle="bold"
                             android:layout_gravity="center_horizontal"
@@ -274,7 +274,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="50dp"
                             android:padding="10dp"
-                            android:text="District Name : "
+                            android:text="Arunachal Pradesh "
                             android:textSize="20sp"
                             android:textStyle="italic|bold"
                             android:gravity="center_horizontal"/>
@@ -291,7 +291,7 @@
                                 android:layout_height="50dp"
                                 android:layout_weight="1"
                                 android:padding="10dp"
-                                android:text="Total schools : "
+                                android:text="Total schools :59 "
                                 android:textSize="15sp"
                                 android:textStyle="normal"/>
 
@@ -300,32 +300,7 @@
                                 android:layout_height="50dp"
                                 android:layout_weight="1"
                                 android:padding="10dp"
-                                android:text="Total population : "
-                                android:textSize="15sp"
-                                android:textStyle="normal"/>
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:weightSum="2">
-
-                            <TextView
-                                android:layout_width="0dp"
-                                android:layout_height="50dp"
-                                android:layout_weight="1"
-                                android:padding="10dp"
-                                android:text="% 0-6 population : "
-                                android:textSize="15sp"
-                                android:textStyle="normal"/>
-
-                            <TextView
-                                android:layout_width="0dp"
-                                android:layout_height="50dp"
-                                android:layout_weight="1"
-                                android:padding="10dp"
-                                android:text="% Urban population : "
+                                android:text="Total population :5800 "
                                 android:textSize="15sp"
                                 android:textStyle="normal"/>
                         </LinearLayout>
@@ -341,7 +316,7 @@
                                 android:layout_height="50dp"
                                 android:layout_weight="1"
                                 android:padding="10dp"
-                                android:text="Sex-ratio : "
+                                android:text="% 0-6 population :25 "
                                 android:textSize="15sp"
                                 android:textStyle="normal"/>
 
@@ -350,32 +325,7 @@
                                 android:layout_height="50dp"
                                 android:layout_weight="1"
                                 android:padding="10dp"
-                                android:text="Sex-ratio(0-6) : "
-                                android:textSize="15sp"
-                                android:textStyle="normal"/>
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:weightSum="2">
-
-                            <TextView
-                                android:layout_width="0dp"
-                                android:layout_height="50dp"
-                                android:layout_weight="1"
-                                android:padding="10dp"
-                                android:text="% SC population : "
-                                android:textSize="15sp"
-                                android:textStyle="normal"/>
-
-                            <TextView
-                                android:layout_width="0dp"
-                                android:layout_height="50dp"
-                                android:layout_weight="1"
-                                android:padding="10dp"
-                                android:text="% ST population : "
+                                android:text="% Urban population :47 "
                                 android:textSize="15sp"
                                 android:textStyle="normal"/>
                         </LinearLayout>
@@ -391,7 +341,7 @@
                                 android:layout_height="50dp"
                                 android:layout_weight="1"
                                 android:padding="10dp"
-                                android:text="Overall literacy : "
+                                android:text="Sex-ratio :1.13 "
                                 android:textSize="15sp"
                                 android:textStyle="normal"/>
 
@@ -400,7 +350,57 @@
                                 android:layout_height="50dp"
                                 android:layout_weight="1"
                                 android:padding="10dp"
-                                android:text="Female literacy : "
+                                android:text="Sex-ratio(0-6) :1.08 "
+                                android:textSize="15sp"
+                                android:textStyle="normal"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:weightSum="2">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="50dp"
+                                android:layout_weight="1"
+                                android:padding="10dp"
+                                android:text="% SC population :13 "
+                                android:textSize="15sp"
+                                android:textStyle="normal"/>
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="50dp"
+                                android:layout_weight="1"
+                                android:padding="10dp"
+                                android:text="% ST population :06 "
+                                android:textSize="15sp"
+                                android:textStyle="normal"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:weightSum="2">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="50dp"
+                                android:layout_weight="1"
+                                android:padding="10dp"
+                                android:text="Overall literacy :89% "
+                                android:textSize="15sp"
+                                android:textStyle="normal"/>
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="50dp"
+                                android:layout_weight="1"
+                                android:padding="10dp"
+                                android:text="Female literacy :86 "
                                 android:textSize="15sp"
                                 android:textStyle="normal"/>
                         </LinearLayout>
