@@ -16,6 +16,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.DecelerateInterpolator;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -82,6 +83,8 @@ public class DistrictDetailActivity extends ActionBarActivity implements Observa
     String female_lit2;
 
     TextView DisName,  StateName;
+
+    Button improvements;
 
 
     @Override
@@ -247,6 +250,18 @@ public class DistrictDetailActivity extends ActionBarActivity implements Observa
                 startActivity(i);
             }
         });
+
+        improvements= (Button)findViewById(R.id.improvments);
+
+        improvements.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(),Improvements.class);
+                intent.putExtra("Name", distname1 + " " +statename1);
+                startActivity(intent);
+            }
+        });
+
 
     }
 

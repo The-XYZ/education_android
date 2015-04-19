@@ -77,6 +77,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"
             android:value="AIzaSyBh7lGr1RViib_l3at4UGY2tU3564gvxws" />
@@ -121,7 +122,7 @@
                 <action android:name="com.google.android.c2dm.intent.RECEIVE" />
                 <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
 
-<!--                   IMPORTANT: Change "com.parse.starter" to match your app's package name. -->
+                <!-- IMPORTANT: Change "com.parse.starter" to match your app's package name. -->
                 <category android:name="com.txyz.policyhack" />
             </intent-filter>
         </receiver>
@@ -130,7 +131,7 @@
             android:name=".DistrictDetailActivity"
             android:label="@string/title_activity_district_detail"
             android:parentActivityName=".MainActivity"
-            android:theme="@style/SchoolDetailActivity">
+            android:theme="@style/SchoolDetailActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.txyz.policyhack.MainActivity" />
@@ -140,6 +141,10 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".Improvements"
+            android:label="@string/title_activity_improvements" >
         </activity>
     </application>
 
