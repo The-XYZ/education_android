@@ -170,7 +170,7 @@ public class DistrictsFragment  extends Fragment {
             itemData.female_lit= item.getString("female_lit");
 
             itemData.statename= item.get("statename").toString();
-            itemData.imageUrl=   R.drawable.rsz_school_one;
+            itemData.imageUrl=   R.color.colorAccent;
             itemData.distname= item.get("distname").toString();
             itemData.totschools= item.get("totschools").toString();
             itemData.totpopulation= item.get("totpopulation").toString();
@@ -229,7 +229,7 @@ public class DistrictsFragment  extends Fragment {
             itemData.female_lit= item.getString("female_lit");
 
             itemData.statename= item.get("statename").toString();
-            itemData.imageUrl=   R.drawable.rsz_school_one;
+            itemData.imageUrl=   R.color.colorAccent;
             itemData.distname= item.get("distname").toString();
             itemData.totschools= item.get("totschools").toString();
             itemData.totpopulation= item.get("totpopulation").toString();
