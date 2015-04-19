@@ -1,5 +1,6 @@
 package com.txyz.policyhack;
 
+import android.content.Intent;
 import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -33,6 +34,33 @@ public class DistrictDetailActivity extends ActionBarActivity implements Observa
     private int mFabMargin;
     private int mToolbarColor;
 
+
+    String statename1;
+    String distname1;
+    String totschools1;
+    String totpopulation1;
+    String p_06_pop1;
+    String p_urb_pop1;
+    String sexratio1;
+    String sexratio_061;
+    String growthrate1;
+    String p_sc_pop1;
+    String overall_lit1;
+    String female_lit1;
+
+    String statename2;
+    String distname2;
+    String totschools2;
+    String totpopulation2;
+    String p_06_pop2;
+    String p_urb_pop2;
+    String sexratio2;
+    String sexratio_062;
+    String growthrate2;
+    String p_sc_pop2;
+    String overall_lit2;
+    String female_lit2;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,8 +68,6 @@ public class DistrictDetailActivity extends ActionBarActivity implements Observa
 
         setSupportActionBar((Toolbar) findViewById(R.id.toolbar));
 
-//        Intent intent = getIntent();
-//        intent.getStringExtra("S");
 
         mFlexibleSpaceImageHeight = getResources().getDimensionPixelSize(R.dimen.flexible_space_image_height);
         mActionBarSize = getActionBarSize();
@@ -51,6 +77,35 @@ public class DistrictDetailActivity extends ActionBarActivity implements Observa
         if (!TOOLBAR_IS_STICKY) {
             mToolbar.setBackgroundColor(Color.TRANSPARENT);
         }
+
+        Intent i= getIntent();
+        statename2= i.getStringExtra("statename2");
+        distname2= i.getStringExtra("distname2");
+        totschools2= i.getStringExtra("totschools2");
+        totpopulation2= i.getStringExtra("totpopulation2");
+        p_06_pop2= i.getStringExtra("p_06_pop2");
+        p_urb_pop2= i.getStringExtra("p_urb_pop2");
+        sexratio2= i.getStringExtra("sexratio2");
+        sexratio_062= i.getStringExtra("sexratio_062");
+        growthrate2= i.getStringExtra("growthrate2");
+        p_sc_pop2= i.getStringExtra("p_sc_pop2");
+        overall_lit2= i.getStringExtra("overall_lit2");
+        female_lit2= i.getStringExtra("female_lit2");
+
+
+        statename1= i.getStringExtra("statename1");
+        distname1= i.getStringExtra("distname1");
+        totschools1= i.getStringExtra("totschools1");
+        totpopulation1= i.getStringExtra("totpopulation1");
+        p_06_pop1= i.getStringExtra("p_06_pop1");
+        p_urb_pop1= i.getStringExtra("p_urb_pop1");
+        sexratio1= i.getStringExtra("sexratio1");
+        sexratio_061= i.getStringExtra("sexratio_061");
+        growthrate1= i.getStringExtra("growthrate1");
+        p_sc_pop1= i.getStringExtra("p_sc_pop1");
+        overall_lit1= i.getStringExtra("overall_lit1");
+        female_lit1= i.getStringExtra("female_lit1");
+
         mImageView = findViewById(R.id.image);
         mOverlayView = findViewById(R.id.overlay);
         mScrollView = (ObservableScrollView) findViewById(R.id.scroll);
