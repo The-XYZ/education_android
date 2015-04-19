@@ -155,7 +155,7 @@ public class DistrictsFragment  extends Fragment {
             DistrictData itemData = new DistrictData();
 
             itemData.statename= item.getString("statename");
-            itemData.imageUrl=   R.drawable.rsz_school_one;
+            itemData.imageUrl=   R.color.colorAccent;
             itemData.distname= item.getString("distname");
             itemData.totschools= item.getString("totschools");
             itemData.totpopulation= item.getString("totpopulation");
@@ -197,7 +197,7 @@ public class DistrictsFragment  extends Fragment {
             DistrictData itemData = new DistrictData();
 
             itemData.statename= item.getString("statename");
-            itemData.imageUrl=   R.drawable.rsz_school_one;
+            itemData.imageUrl=    R.color.colorAccent;
             itemData.distname= item.getString("distname");
             itemData.totschools= item.getString("totschools");
             itemData.totpopulation= item.getString("totpopulation");
