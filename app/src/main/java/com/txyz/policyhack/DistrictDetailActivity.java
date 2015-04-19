@@ -11,6 +11,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.github.ksoichiro.android.observablescrollview.ObservableScrollView;
 import com.github.ksoichiro.android.observablescrollview.ObservableScrollViewCallbacks;
@@ -89,6 +90,8 @@ public class DistrictDetailActivity extends ActionBarActivity implements Observa
         sexratio_062= i.getStringExtra("sexratio_062");
         growthrate2= i.getStringExtra("growthrate2");
         p_sc_pop2= i.getStringExtra("p_sc_pop2");
+
+        Toast.makeText(getApplicationContext(), p_sc_pop2,Toast.LENGTH_LONG).show();
         overall_lit2= i.getStringExtra("overall_lit2");
         female_lit2= i.getStringExtra("female_lit2");
 
@@ -103,6 +106,8 @@ public class DistrictDetailActivity extends ActionBarActivity implements Observa
         sexratio_061= i.getStringExtra("sexratio_061");
         growthrate1= i.getStringExtra("growthrate1");
         p_sc_pop1= i.getStringExtra("p_sc_pop1");
+        Toast.makeText(getApplicationContext(), p_sc_pop1,Toast.LENGTH_LONG).show();
+
         overall_lit1= i.getStringExtra("overall_lit1");
         female_lit1= i.getStringExtra("female_lit1");
 
