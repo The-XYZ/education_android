@@ -128,7 +128,7 @@ public class DistrictDetailActivity extends ActionBarActivity implements Observa
         growthrate2= i.getStringExtra("getGrowthrate2");
         p_sc_pop2= i.getStringExtra("getP_sc_pop2");
 
-        Toast.makeText(getApplicationContext(), p_sc_pop2,Toast.LENGTH_LONG).show();
+
         overall_lit2= i.getStringExtra("getOverall_lit2");
         female_lit2= i.getStringExtra("getFemale_lit2");
 
@@ -143,7 +143,7 @@ public class DistrictDetailActivity extends ActionBarActivity implements Observa
         sexratio_061= i.getStringExtra("getSexratio_061");
         growthrate1= i.getStringExtra("getGrowthrate1");
         p_sc_pop1= i.getStringExtra("getP_sc_pop1");
-        Toast.makeText(getApplicationContext(), p_sc_pop1,Toast.LENGTH_LONG).show();
+
 
         overall_lit1= i.getStringExtra("getOverall_lit1");
         female_lit1= i.getStringExtra("grtFemale_lit1");

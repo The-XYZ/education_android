@@ -22,6 +22,8 @@ public class CompareActivity extends ActionBarActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_compare);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("Compare");
         imageView=(ImageView) findViewById(R.id.iv_drawable);
         imageView2=(ImageView) findViewById(R.id.iv_drawable2);
         drawable = new CircularProgressDrawable.Builder()
@@ -48,11 +50,11 @@ public class CompareActivity extends ActionBarActivity {
     private Animator prepareStyle3Animation() {
         AnimatorSet animation = new AnimatorSet();
 
-        ObjectAnimator progressAnimation = ObjectAnimator.ofFloat(drawable, CircularProgressDrawable.PROGRESS_PROPERTY, 0f, 0.75f);
+        ObjectAnimator progressAnimation = ObjectAnimator.ofFloat(drawable, CircularProgressDrawable.PROGRESS_PROPERTY, 0f, 0.70f);
         progressAnimation.setDuration(1200);
         progressAnimation.setInterpolator(new AnticipateInterpolator());
 
-        Animator innerCircleAnimation = ObjectAnimator.ofFloat(drawable, CircularProgressDrawable.CIRCLE_SCALE_PROPERTY, 0f, 0.75f);
+        Animator innerCircleAnimation = ObjectAnimator.ofFloat(drawable, CircularProgressDrawable.CIRCLE_SCALE_PROPERTY, 0f, 0.70f);
         innerCircleAnimation.setDuration(1200);
         innerCircleAnimation.setInterpolator(new AnticipateInterpolator());
 
@@ -64,11 +66,11 @@ public class CompareActivity extends ActionBarActivity {
     private Animator prepareStyle3Animation2() {
         AnimatorSet animation = new AnimatorSet();
 
-        ObjectAnimator progressAnimation = ObjectAnimator.ofFloat(drawable2, CircularProgressDrawable.PROGRESS_PROPERTY, 0f, 0.75f);
+        ObjectAnimator progressAnimation = ObjectAnimator.ofFloat(drawable2, CircularProgressDrawable.PROGRESS_PROPERTY, 0f, 0.60f);
         progressAnimation.setDuration(1200);
         progressAnimation.setInterpolator(new AnticipateInterpolator());
 
-        Animator innerCircleAnimation = ObjectAnimator.ofFloat(drawable2, CircularProgressDrawable.CIRCLE_SCALE_PROPERTY, 0f, 0.75f);
+        Animator innerCircleAnimation = ObjectAnimator.ofFloat(drawable2, CircularProgressDrawable.CIRCLE_SCALE_PROPERTY, 0f, 0.60f);
         innerCircleAnimation.setDuration(1200);
         innerCircleAnimation.setInterpolator(new AnticipateInterpolator());
 
