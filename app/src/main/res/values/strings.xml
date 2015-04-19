@@ -20,5 +20,6 @@
     <string name="title_activity_school_detail">SchoolDetailActivity</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_district_detail">DistrictDetailActivity</string>
+    <string name="title_activity_improvements">Improvements</string>
 
 </resources>
