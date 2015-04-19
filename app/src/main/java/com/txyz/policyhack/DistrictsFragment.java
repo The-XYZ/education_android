@@ -1,12 +1,9 @@
 package com.txyz.policyhack;
 
-import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.pm.ApplicationInfo;
-import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -24,7 +21,6 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
@@ -109,54 +105,16 @@ public class DistrictsFragment  extends Fragment {
 
             dialog.show();
         }
-        else {
-            mMap = ((SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.map)).getMap();
 
-
-            MarkerOptions markerOptions;
-            LatLng position;
-
-            markerOptions = new MarkerOptions();
-
-            if (isGoogleMapsInstalled()) {
-                position = new LatLng(28.749783333f, 77.1172f);
-                markerOptions.position(position);
-                markerOptions.title("Delhi Technological University");
-                mMap.addMarker(markerOptions);
-                CameraUpdate cameraPosition = CameraUpdateFactory.newLatLngZoom(position, 15.0f);
-                mMap.animateCamera(cameraPosition);
-            }
-            else
-            {
-                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-                builder.setMessage("Please install Google Maps");
-                builder.setCancelable(true);
-                builder.setPositiveButton("Install", getGoogleMapsListener());
-                AlertDialog dialog = builder.create();
-                dialog.show();
-            }
-        }
 
 
         return v;
     }
 
-    public boolean isGoogleMapsInstalled()
-    {
-        try
-        {
-            ApplicationInfo info = getActivity().getPackageManager().getApplicationInfo("com.google.android.apps.maps", 0);
-            return true;
-        }
-        catch(PackageManager.NameNotFoundException e)
-        {
-            return false;
-        }
-    }
+
 
     public void fetchData1(String StateName){
-        ParseQuery<ParseObject> query = new ParseQuery<ParseObject>(
-                "District2012");
+        ParseQuery<ParseObject> query = new ParseQuery<ParseObject>("District2012");
         query.whereMatches("statename",StateName);
         query.findInBackground(new FindCallback<ParseObject>() {
             @Override
@@ -181,7 +139,7 @@ public class DistrictsFragment  extends Fragment {
 
     public void doneFetching1(List<ParseObject> objects) {
 
-        Log.d("lol", objects.toString());
+        Log.d("lol20", objects.toString());
 
         for (ParseObject item : objects) {
 
@@ -211,7 +169,7 @@ public class DistrictsFragment  extends Fragment {
             }
 
             list1.add(itemData);
-            Log.d("lol2","lol");
+            Log.d("lol20","lol");
         }
 
 //        myAdapter=new MyAdapter2(getActivity(),list1);
@@ -223,7 +181,7 @@ public class DistrictsFragment  extends Fragment {
 
     public void doneFetching2(List<ParseObject> objects) {
 
-        Log.d("lol", objects.toString());
+        Log.d("lol21", objects.toString());
 
         for (ParseObject item : objects) {
 
@@ -252,13 +210,12 @@ public class DistrictsFragment  extends Fragment {
             }
 
             list2.add(itemData);
-            Log.d("lol2","lol");
+            Log.d("lol21","lol");
         }
 
         myAdapter=new MyAdapter2(getActivity(),list2);
 
         mRecyclerView.setAdapter(myAdapter);
-        Log.d("lol","lol");
 
     }
 

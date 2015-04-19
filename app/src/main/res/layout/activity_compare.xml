@@ -11,4 +11,17 @@
         />
 
 
+<View
+    android:layout_width="match_parent"
+    android:layout_height="2dp"
+    android:layout_margin="10dp"
+    android:background="#000000"/>
+    <ImageView
+        android:id="@+id/iv_drawable2"
+        android:layout_width="match_parent"
+        android:layout_height="256dip"
+        android:padding="12dip"
+        />
+
+
 </LinearLayout>
