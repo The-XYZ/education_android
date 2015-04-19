@@ -25,6 +25,7 @@ import com.github.ksoichiro.android.observablescrollview.ScrollState;
 import com.github.ksoichiro.android.observablescrollview.ScrollUtils;
 import com.lid.lib.LabelView;
 import com.nineoldandroids.view.ViewHelper;
+import com.nineoldandroids.view.ViewPropertyAnimator;
 
 import org.eazegraph.lib.charts.StackedBarChart;
 import org.eazegraph.lib.models.BarModel;
@@ -38,15 +39,19 @@ public class DistrictDetailActivity extends ActionBarActivity implements Observa
     private final TimeInterpolator enterInterpolator = new DecelerateInterpolator(1.5f);
     private final TimeInterpolator exitInterpolator = new AccelerateInterpolator();
 
+    private StackedBarChart mStackedBarChart;
     private View mToolbar;
     private View mImageView;
     private View mOverlayView;
     private ObservableScrollView mScrollView;
     private TextView mTitleView;
+    private View mFab;
     private int mActionBarSize;
+    private int mFlexibleSpaceShowFabOffset;
     private int mFlexibleSpaceImageHeight;
+    private int mFabMargin;
     private int mToolbarColor;
-    private StackedBarChart mStackedBarChart;
+    private boolean mFabIsShown;
 
 
 
@@ -102,6 +107,7 @@ public class DistrictDetailActivity extends ActionBarActivity implements Observa
         label2.setTargetView(findViewById(R.id.cardview_2013), 10, LabelView.Gravity.RIGHT_TOP);
 
         mFlexibleSpaceImageHeight = getResources().getDimensionPixelSize(R.dimen.flexible_space_image_height);
+        mFlexibleSpaceShowFabOffset = getResources().getDimensionPixelSize(R.dimen.flexible_space_show_fab_offset);
         mActionBarSize = getActionBarSize();
         mToolbarColor = getResources().getColor(R.color.colorPrimary);
 
@@ -152,6 +158,10 @@ public class DistrictDetailActivity extends ActionBarActivity implements Observa
         mScrollView.setScrollViewCallbacks(this);
         mTitleView = (TextView) findViewById(R.id.title);
         mTitleView.setText(getTitle());
+        mFab = findViewById(R.id.fab);
+        mFabMargin = getResources().getDimensionPixelSize(R.dimen.margin_standard);
+        ViewHelper.setScaleX(mFab, 0);
+        ViewHelper.setScaleY(mFab, 0);
         setTitle(null);
 
         ScrollUtils.addOnGlobalLayoutListener(mScrollView, new Runnable() {
@@ -230,6 +240,14 @@ public class DistrictDetailActivity extends ActionBarActivity implements Observa
         mStackedBarChart.startAnimation();
         //mStackedBarChart.setPaddingRelative();
 
+        mFab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(DistrictDetailActivity.this, CompareActivity.class);
+                startActivity(i);
+            }
+        });
+
     }
 
     @Override
@@ -258,6 +276,21 @@ public class DistrictDetailActivity extends ActionBarActivity implements Observa
         }
         ViewHelper.setTranslationY(mTitleView, titleTranslationY);
 
+        // Translate FAB
+        int maxFabTranslationY = mFlexibleSpaceImageHeight - mFab.getHeight() / 2;
+        float fabTranslationY = ScrollUtils.getFloat(
+                -scrollY + mFlexibleSpaceImageHeight - mFab.getHeight() / 2,
+                mActionBarSize - mFab.getHeight() / 2,
+                maxFabTranslationY);
+        ViewHelper.setTranslationX(mFab, mOverlayView.getWidth() - mFabMargin - mFab.getWidth());
+        ViewHelper.setTranslationY(mFab, fabTranslationY);
+
+        // Show/hide FAB
+        if (ViewHelper.getTranslationY(mFab) < mFlexibleSpaceShowFabOffset) {
+            hideFab();
+        } else {
+            showFab();
+        }
 
         if (TOOLBAR_IS_STICKY) {
             // Change alpha of toolbar background
@@ -273,6 +306,22 @@ public class DistrictDetailActivity extends ActionBarActivity implements Observa
             } else {
                 ViewHelper.setTranslationY(mToolbar, -scrollY);
             }
+        }
+    }
+
+    private void showFab() {
+        if (!mFabIsShown) {
+            ViewPropertyAnimator.animate(mFab).cancel();
+            ViewPropertyAnimator.animate(mFab).scaleX(1).scaleY(1).setDuration(200).start();
+            mFabIsShown = true;
+        }
+    }
+
+    private void hideFab() {
+        if (mFabIsShown) {
+            ViewPropertyAnimator.animate(mFab).cancel();
+            ViewPropertyAnimator.animate(mFab).scaleX(0).scaleY(0).setDuration(200).start();
+            mFabIsShown = false;
         }
     }
 

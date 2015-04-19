@@ -486,4 +486,12 @@
             android:background="@android:color/transparent" />
     </LinearLayout>
 
+    <com.melnykov.fab.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleType="center"
+        app:fab_colorNormal="@color/colorAccent"
+        app:fab_colorPressed="@color/colorPrimaryDark"/>
+
 </FrameLayout>

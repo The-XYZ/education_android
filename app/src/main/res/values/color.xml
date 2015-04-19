@@ -8,7 +8,7 @@
     <!-- App Main colors -->
     <color name="colorPrimary">#1976D2</color>
     <color name="colorPrimaryDark">#747474</color>
-    <color name="colorAccent">#009688</color>
+    <color name="colorAccent">#FF9800</color>
 
     <color name="axis">#ffffff</color>
     <color name="label">#ffffff</color>
