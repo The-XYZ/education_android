@@ -117,36 +117,36 @@ public class DistrictDetailActivity extends ActionBarActivity implements Observa
         }
 
         Intent i= getIntent();
-        statename2= i.getStringExtra("statename2");
-        distname2= i.getStringExtra("distname2");
-        totschools2= i.getStringExtra("totschools2");
-        totpopulation2= i.getStringExtra("totpopulation2");
-        p_06_pop2= i.getStringExtra("p_06_pop2");
-        p_urb_pop2= i.getStringExtra("p_urb_pop2");
-        sexratio2= i.getStringExtra("sexratio2");
-        sexratio_062= i.getStringExtra("sexratio_062");
-        growthrate2= i.getStringExtra("growthrate2");
-        p_sc_pop2= i.getStringExtra("p_sc_pop2");
+        statename2= i.getStringExtra("getStatename2");
+        distname2= i.getStringExtra("getDistname2");
+        totschools2= i.getStringExtra("getTotschools2");
+        totpopulation2= i.getStringExtra("getTotpopulation2");
+        p_06_pop2= i.getStringExtra("getP_06_pop2");
+        p_urb_pop2= i.getStringExtra("getP_urb_pop2");
+        sexratio2= i.getStringExtra("getSexratio2");
+        sexratio_062= i.getStringExtra("getSexratio_062");
+        growthrate2= i.getStringExtra("getGrowthrate2");
+        p_sc_pop2= i.getStringExtra("getP_sc_pop2");
 
         Toast.makeText(getApplicationContext(), p_sc_pop2,Toast.LENGTH_LONG).show();
-        overall_lit2= i.getStringExtra("overall_lit2");
-        female_lit2= i.getStringExtra("female_lit2");
+        overall_lit2= i.getStringExtra("getOverall_lit2");
+        female_lit2= i.getStringExtra("getFemale_lit2");
 
 
-        statename1= i.getStringExtra("statename1");
-        distname1= i.getStringExtra("distname1");
-        totschools1= i.getStringExtra("totschools1");
-        totpopulation1= i.getStringExtra("totpopulation1");
-        p_06_pop1= i.getStringExtra("p_06_pop1");
-        p_urb_pop1= i.getStringExtra("p_urb_pop1");
-        sexratio1= i.getStringExtra("sexratio1");
-        sexratio_061= i.getStringExtra("sexratio_061");
-        growthrate1= i.getStringExtra("growthrate1");
-        p_sc_pop1= i.getStringExtra("p_sc_pop1");
+        statename1= i.getStringExtra("getStatename1");
+        distname1= i.getStringExtra("getDistname1");
+        totschools1= i.getStringExtra("getTotschools1");
+        totpopulation1= i.getStringExtra("getTotpopulation1");
+        p_06_pop1= i.getStringExtra("getP_06_pop1");
+        p_urb_pop1= i.getStringExtra("getP_urb_pop1");
+        sexratio1= i.getStringExtra("getSexratio1");
+        sexratio_061= i.getStringExtra("getSexratio_061");
+        growthrate1= i.getStringExtra("getGrowthrate1");
+        p_sc_pop1= i.getStringExtra("getP_sc_pop1");
         Toast.makeText(getApplicationContext(), p_sc_pop1,Toast.LENGTH_LONG).show();
 
-        overall_lit1= i.getStringExtra("overall_lit1");
-        female_lit1= i.getStringExtra("female_lit1");
+        overall_lit1= i.getStringExtra("getOverall_lit1");
+        female_lit1= i.getStringExtra("grtFemale_lit1");
 
 
         DisName.setText(distname1);

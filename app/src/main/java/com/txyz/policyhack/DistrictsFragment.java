@@ -154,19 +154,19 @@ public class DistrictsFragment  extends Fragment {
 
             DistrictData itemData = new DistrictData();
 
-            itemData.statename= item.getString("statename");
+            itemData.statename= item.get("statename").toString();
             itemData.imageUrl=   R.drawable.rsz_school_one;
-            itemData.distname= item.getString("distname");
-            itemData.totschools= item.getString("totschools");
-            itemData.totpopulation= item.getString("totpopulation");
-            itemData.p_06_pop= item.getString("p_06_pop");
-            itemData.p_urb_pop= item.getString("p_urb_pop");
-            itemData.sexratio= item.getString("sexratio");
-            itemData.sexratio_06= item.getString("sexratio_06");
-            itemData.growthrate= item.getString("growthrate");
-            itemData.p_sc_pop= item.getString("p_sc_pop");
-            itemData.overall_lit= item.getString("overall_lit");
-            itemData.female_lit= item.getString("female_lit");
+            itemData.distname= item.get("distname").toString();
+            itemData.totschools= item.get("totschools").toString();
+            itemData.totpopulation= item.get("totpopulation").toString();
+            itemData.p_06_pop= item.get("p_06_pop").toString();
+            itemData.p_urb_pop= item.get("p_urb_pop").toString();
+            itemData.sexratio= item.get("sexratio").toString();
+            itemData.sexratio_06= item.get("sexratio_06").toString();
+            itemData.growthrate= item.get("growthrate").toString();
+            itemData.p_sc_pop= item.get("p_sc_pop").toString();
+            itemData.overall_lit= item.get("overall_lit").toString();
+            itemData.female_lit= item.get("female_lit").toString();
 
             try {
                 itemData.latlong = "" + item.getParseGeoPoint("lat").getLatitude() + "," + item.getParseGeoPoint("lat").getLongitude();
@@ -178,6 +178,7 @@ public class DistrictsFragment  extends Fragment {
             }
 
             list1.add(itemData);
+            Log.d("lol50",list1.toString());
             Log.d("lol20","lol");
         }
 
@@ -196,19 +197,19 @@ public class DistrictsFragment  extends Fragment {
 
             DistrictData itemData = new DistrictData();
 
-            itemData.statename= item.getString("statename");
+            itemData.statename= item.get("statename").toString();
             itemData.imageUrl=   R.drawable.rsz_school_one;
-            itemData.distname= item.getString("distname");
-            itemData.totschools= item.getString("totschools");
-            itemData.totpopulation= item.getString("totpopulation");
-            itemData.p_06_pop= item.getString("p_06_pop");
-            itemData.p_urb_pop= item.getString("p_urb_pop");
-            itemData.sexratio= item.getString("sexratio");
-            itemData.sexratio_06= item.getString("sexratio_06");
-            itemData.growthrate= item.getString("growthrate");
-            itemData.p_sc_pop= item.getString("p_sc_pop");
-            itemData.overall_lit= item.getString("overall_lit");
-            itemData.female_lit= item.getString("female_lit");
+            itemData.distname= item.get("distname").toString();
+            itemData.totschools= item.get("totschools").toString();
+            itemData.totpopulation= item.get("totpopulation").toString();
+            itemData.p_06_pop= item.get("p_06_pop").toString();
+            itemData.p_urb_pop= item.get("p_urb_pop").toString();
+            itemData.sexratio= item.get("sexratio").toString();
+            itemData.sexratio_06= item.get("sexratio_06").toString();
+            itemData.growthrate= item.get("growthrate").toString();
+            itemData.p_sc_pop= item.get("p_sc_pop").toString();
+            itemData.overall_lit= item.get("overall_lit").toString();
+            itemData.female_lit= item.get("female_lit").toString();
             try {
                 itemData.latlong = "" + item.getParseGeoPoint("lat").getLatitude() + "," + item.getParseGeoPoint("lat").getLongitude();
                 addToMap(itemData.getLatlong().toString(), itemData.getDistname());
@@ -289,6 +290,7 @@ public class DistrictsFragment  extends Fragment {
                     intent.putExtra("getGrowthrate1",list1.get(position).getGrowthrate());
                     intent.putExtra("getP_06_pop1",list1.get(position).getP_06_pop());
                     intent.putExtra("getP_sc_pop1",list1.get(position).getP_sc_pop());
+
                     intent.putExtra("getP_urb_pop1",list1.get(position).getP_urb_pop());
                     intent.putExtra("getSexratio1",list1.get(position).getSexratio());
                     intent.putExtra("getSexratio_061",list1.get(position).getSexratio_06());
