@@ -21,4 +21,6 @@
     <color name="bar_grid">#1Aaa3302</color>
     <color name="bar_tooltip">#aa3302</color>
 
+    <color name="textview_bg_schoolFragment">#4CAF50</color>
+
 </resources>

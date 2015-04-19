@@ -4,70 +4,80 @@
     android:layout_height="500dp"
     android:padding="5dp">
 
-    <android.support.v7.widget.CardView
-        android:layout_width="100dp"
-        android:layout_height="500dp">
-
-
-    <!-- icon -->
-    <ImageView
-        android:id="@+id/item_icon"
-        android:layout_width="100dp"
+    <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:layout_width="125dp"
         android:layout_height="400dp"
-        android:scaleType="centerCrop"
-        android:layout_alignParentLeft="true"
-        android:contentDescription="icon"
-        android:src="@drawable/rsz_school_four"
-        />
+        android:layout_margin="5dp"
+        android:foreground="?selectableItemBackground"
+        android:orientation="horizontal"
+        card_view:cardCornerRadius="0dp"
+        card_view:cardElevation="0dp">
 
 
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:layout_gravity="center"
-    android:weightSum="5">
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-    <!-- title -->
-    <TextView
-        android:id="@+id/item_title"
-        android:layout_width="fill_parent"
-        android:layout_height="0dp"
-        android:layout_weight="2"
-        android:layout_below="@+id/item_icon"
-        android:layout_alignBaseline="@+id/item_icon"
-        android:textColor="@android:color/darker_gray"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginTop="8dp"
-        android:textSize="15sp" />
-        <TextView
-            android:id="@+id/item_block"
-            android:layout_width="fill_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:layout_below="@+id/item_icon"
-            android:layout_alignBaseline="@+id/item_icon"
-            android:textColor="@android:color/darker_gray"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
-            android:layout_marginTop="8dp"
-            android:textSize="15sp" />
-        <TextView
-            android:id="@+id/item_village"
-            android:layout_width="fill_parent"
-            android:layout_height="0dp"
-            android:layout_weight="2"
-            android:layout_below="@+id/item_icon"
-            android:layout_alignBaseline="@+id/item_icon"
-            android:textColor="@android:color/darker_gray"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
-            android:layout_marginTop="8dp"
-            android:textSize="15sp" />
+            <!-- icon -->
+            <ImageView
+                android:id="@+id/item_icon"
+                android:layout_width="match_parent"
+                android:layout_height="400dp"
+                android:layout_alignParentLeft="true"
+                android:contentDescription="icon"
+                android:scaleType="fitXY"
+                android:src="@color/colorAccent" />
 
-</LinearLayout>
 
-   </android.support.v7.widget.CardView>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:orientation="vertical">
+
+                <!-- title -->
+                <TextView
+                    android:id="@+id/item_title"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/item_icon"
+                    android:layout_below="@+id/item_icon"
+                    android:padding="8dp"
+                    android:textColor="@android:color/white"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    />
+
+                <TextView
+                    android:id="@+id/item_block"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/item_icon"
+                    android:layout_below="@+id/item_icon"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginTop="20dp"
+                    android:textColor="@android:color/white"
+                    android:textSize="15sp"
+                    android:textStyle="italic|bold"/>
+
+
+                <TextView
+                    android:id="@+id/item_village"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/item_icon"
+                    android:layout_below="@+id/item_icon"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginTop="20dp"
+                    android:textColor="@android:color/white"
+                    android:textSize="12sp" />
+
+            </LinearLayout>
+        </FrameLayout>
+
+    </android.support.v7.widget.CardView>
 
 </RelativeLayout>

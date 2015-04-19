@@ -114,7 +114,7 @@ public class SchoolsFragment extends Fragment {
 
             ItemData itemData = new ItemData();
             itemData.title= item.getString("SCHOOL_NAME");
-            itemData.imageUrl=   R.drawable.rsz_school_one;
+            itemData.imageUrl=   R.color.colorAccent;
             itemData.block= item.getString("BLOCK_NAME");
             itemData.village= item.getString("VILLAGE_NAME");
             try {
