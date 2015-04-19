@@ -24,6 +24,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
@@ -156,7 +157,7 @@ public class DistrictsFragment  extends Fragment {
     public void fetchData1(String StateName){
         ParseQuery<ParseObject> query = new ParseQuery<ParseObject>(
                 "District2012");
-        query.whereEqualTo("statename",StateName);
+        query.whereMatches("statename",StateName);
         query.findInBackground(new FindCallback<ParseObject>() {
             @Override
             public void done(List<ParseObject> parseObjects, ParseException e) {
@@ -168,7 +169,7 @@ public class DistrictsFragment  extends Fragment {
     public void fetchData2(String StateName){
         ParseQuery<ParseObject> query = new ParseQuery<ParseObject>(
                 "District2013");
-        query.whereEqualTo("statename",StateName);
+        query.whereMatches("statename",StateName);
         query.findInBackground(new FindCallback<ParseObject>() {
             @Override
             public void done(List<ParseObject> parseObjects, ParseException e) {
@@ -200,14 +201,23 @@ public class DistrictsFragment  extends Fragment {
             itemData.overall_lit= item.getString("overall_lit");
             itemData.female_lit= item.getString("female_lit");
 
+            try {
+                itemData.latlong = "" + item.getParseGeoPoint("lat").getLatitude() + "," + item.getParseGeoPoint("lat").getLongitude();
+                addToMap(itemData.getLatlong().toString(), itemData.getDistname());
+                Log.d("lol", itemData.getLatlong().toString());
+            }
+            catch (NullPointerException e){
+
+            }
+
             list1.add(itemData);
             Log.d("lol2","lol");
         }
 
-        myAdapter=new MyAdapter2(getActivity(),list1);
-
-        mRecyclerView.setAdapter(myAdapter);
-        Log.d("lol","lol");
+//        myAdapter=new MyAdapter2(getActivity(),list1);
+//
+//        mRecyclerView.setAdapter(myAdapter);
+//        Log.d("lol","lol");
 
     }
 
@@ -232,15 +242,23 @@ public class DistrictsFragment  extends Fragment {
             itemData.p_sc_pop= item.getString("p_sc_pop");
             itemData.overall_lit= item.getString("overall_lit");
             itemData.female_lit= item.getString("female_lit");
+            try {
+                itemData.latlong = "" + item.getParseGeoPoint("lat").getLatitude() + "," + item.getParseGeoPoint("lat").getLongitude();
+                addToMap(itemData.getLatlong().toString(), itemData.getDistname());
+                Log.d("lol", itemData.getLatlong().toString());
+            }
+            catch (NullPointerException e){
+
+            }
 
             list2.add(itemData);
             Log.d("lol2","lol");
         }
 
-//        myAdapter=new MyAdapter2(getActivity(),list2);
-//
-//        mRecyclerView.setAdapter(myAdapter);
-//        Log.d("lol","lol");
+        myAdapter=new MyAdapter2(getActivity(),list2);
+
+        mRecyclerView.setAdapter(myAdapter);
+        Log.d("lol","lol");
 
     }
 
@@ -298,7 +316,7 @@ public class DistrictsFragment  extends Fragment {
             viewHolder.imgViewIcon.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Intent intent = new Intent(getActivity(), SchoolDetailActivity.class);
+                    Intent intent = new Intent(getActivity(), DistrictDetailActivity.class);
                     intent.putExtra("getDistname1",list1.get(position).getDistname());
                     intent.putExtra("getFemale_lit1",list1.get(position).getFemale_lit());
                     intent.putExtra("getOverall_lit1",list1.get(position).getOverall_lit());
@@ -360,6 +378,30 @@ public class DistrictsFragment  extends Fragment {
                 lastPosition = position;
             }
         }
+
+    }
+
+    private void addToMap(String latlong,String title){
+        mMap = ((SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.map)).getMap();
+
+
+        MarkerOptions markerOptions;
+        LatLng position;
+        String lati=latlong.substring(0,latlong.indexOf(",")),longi=latlong.substring(latlong.indexOf(",")+1,latlong.length());
+        Log.d("lol2",lati+","+longi);
+
+        markerOptions = new MarkerOptions();
+
+
+        position = new LatLng(Double.parseDouble(lati), Double.parseDouble(longi));
+        markerOptions.position(position);
+        markerOptions.title(title);
+        mMap.addMarker(markerOptions);
+
+        CameraUpdate cameraPosition = CameraUpdateFactory.newLatLngZoom(position, 6.0f);
+
+
+        mMap.animateCamera(cameraPosition);
 
     }
 
