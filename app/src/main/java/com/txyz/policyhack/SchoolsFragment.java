@@ -49,6 +49,7 @@ public class SchoolsFragment extends Fragment {
     Spinner spinner;
     View myView;
 
+
     ArrayList<ItemData> list = new ArrayList<ItemData>();
 
 
@@ -58,6 +59,7 @@ public class SchoolsFragment extends Fragment {
 
 
         final View v = inflater.inflate(R.layout.fragment_maps, container, false);
+
         spinner=(Spinner)getActivity().findViewById(R.id.spinner_nav);
         spinner.setVisibility(View.GONE);
         mRecyclerView=(RecyclerView) v.findViewById(R.id.recycler_view);
@@ -190,7 +192,11 @@ public class SchoolsFragment extends Fragment {
                 @Override
                 public void onClick(View view) {
                     Intent intent = new Intent(getActivity(), SchoolDetailActivity.class);
+
                     intent.putExtra("SCHOOL_ID",list.get(position).getTitle());
+
+                    intent.putExtra("SCHOOL_NAME",list.get(position).getTitle());
+
                     intent.putExtra("BLOCK",list.get(position).getBlock());
                     intent.putExtra("VILLAGE",list.get(position).getVillage());
                     startActivity(intent);
