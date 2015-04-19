@@ -83,6 +83,8 @@ public class SchoolDetailActivity extends ActionBarActivity implements Observabl
         SchoolName.setText(name);
         SchoolAddress.setText(block + ", " + village);
 
+        //getSupportActionBar().setTitle(Schoolname + Village );
+
         mFlexibleSpaceImageHeight = getResources().getDimensionPixelSize(R.dimen.flexible_space_image_height);
         mActionBarSize = getActionBarSize();
         mToolbarColor = getResources().getColor(R.color.colorPrimary);

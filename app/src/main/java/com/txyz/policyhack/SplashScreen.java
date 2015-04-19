@@ -14,7 +14,7 @@ public class SplashScreen extends Activity {
 
 
 
-    private final int SPLASH_DISPLAY_LENGHT = 4000;
+    private final int SPLASH_DISPLAY_LENGHT = 3000;
 
     /** Called when the activity is first created. */
     @Override
