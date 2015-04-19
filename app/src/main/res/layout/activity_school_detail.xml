@@ -40,151 +40,156 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="30dp"
-                    android:id="@+id/Schoolname"
-                    android:text="Gb School"
-                    android:paddingLeft="15dp"
-                    android:background="#ffffff"
-                    android:textSize="15sp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:textStyle="bold"
-
-                    />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="30dp"
-                    android:id="@+id/SchoolAddress"
-                    android:text="Rega, Rai Bareli"
-                    android:paddingLeft="15dp"
-                    android:background="#ffffff"
-                    android:textSize="15sp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:textStyle="bold"
-                    android:layout_marginTop="10dp"
-
-
-                    />
-
-            <android.support.v7.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="15dp"
-                android:padding="20dp">
-
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:padding="10dp"
-                    android:text="Teacher's Info"
-                    android:textSize="25sp"
-                    android:textStyle="bold"/>
+                    android:orientation="horizontal"
+                    android:weightSum="2">
 
                     <TextView
+                        android:id="@+id/Schoolname"
                         android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:padding="10dp"
-                        android:text="Teacher's Name : "
+                        android:layout_height="30dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_weight="1"
+                        android:background="#ffffff"
+                        android:paddingLeft="15dp"
+                        android:text="Gb School"
                         android:textSize="15sp"
-                        android:textStyle="italic"/>
-
-                    <org.eazegraph.lib.charts.PieChart
-                        xmlns:app="http://schemas.android.com/apk/res-auto"
-                        android:id="@+id/piechart"
-                        android:layout_width="match_parent"
-                        android:layout_height="200dp"
-                        android:padding="10dp"
-                        app:egLegendTextSize="18sp"
-                        app:egUsePieRotation="true"
-                        app:egValueTextSize="36sp"/>
+                        android:textStyle="bold" />
 
                     <TextView
+                        android:id="@+id/SchoolAddress"
                         android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:padding="10dp"
-                        android:text="No. of teachers with professional degree "
+                        android:layout_height="30dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_weight="1"
+                        android:background="#ffffff"
+                        android:paddingLeft="15dp"
+                        android:text="Rega, Rai Bareli"
                         android:textSize="15sp"
-                        android:textStyle="normal"/>
+                        android:textStyle="bold"
+
+                        />
 
                 </LinearLayout>
-            </android.support.v7.widget.CardView>
 
-            <android.support.v7.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="15dp"
-                android:padding="20dp">
-
-                <LinearLayout
+                <android.support.v7.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:padding="10dp"
-                        android:text="Enrollment"
-                        android:textSize="25sp"
-                        android:textStyle="bold"/>
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:padding="10dp"
-                        android:text="Academic year : "
-                        android:textSize="15sp"
-                        android:textStyle="italic"/>
-
-                    <org.eazegraph.lib.charts.StackedBarChart
-                        xmlns:app="http://schemas.android.com/apk/res-auto"
-                        android:id="@+id/stackedbarchart"
-                        android:layout_width="match_parent"
-                        android:layout_height="256dp"
-                        android:padding="10dp"
-                        app:egFixedBarWidth="true"
-                        app:egBarWidth="20dp"
-                        app:egLegendHeight="40dp"/>
+                    android:layout_margin="15dp"
+                    android:padding="20dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:weightSum="2">
+                        android:orientation="vertical">
 
                         <TextView
-                            android:layout_width="0dp"
+                            android:layout_width="match_parent"
                             android:layout_height="50dp"
-                            android:layout_weight="1"
                             android:padding="10dp"
-                            android:text="created at : "
-                            android:textSize="15sp"
-                            android:textStyle="normal"/>
+                            android:text="Teacher's Info"
+                            android:textSize="25sp"
+                            android:textStyle="bold" />
 
                         <TextView
-                            android:layout_width="0dp"
+                            android:layout_width="match_parent"
                             android:layout_height="50dp"
-                            android:layout_weight="1"
                             android:padding="10dp"
-                            android:text="updated at : "
+                            android:text="Teacher's Name : "
                             android:textSize="15sp"
-                            android:textStyle="normal"/>
+                            android:textStyle="italic" />
+
+                        <org.eazegraph.lib.charts.PieChart xmlns:app="http://schemas.android.com/apk/res-auto"
+                            android:id="@+id/piechart"
+                            android:layout_width="match_parent"
+                            android:layout_height="200dp"
+                            android:padding="10dp"
+                            app:egLegendTextSize="18sp"
+                            app:egUsePieRotation="true"
+                            app:egValueTextSize="36sp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:padding="10dp"
+                            android:text="No. of teachers with professional degree "
+                            android:textSize="15sp"
+                            android:textStyle="normal" />
 
                     </LinearLayout>
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="15dp"
+                    android:padding="20dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:padding="10dp"
+                            android:text="Enrollment"
+                            android:textSize="25sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:padding="10dp"
+                            android:text="Academic year : "
+                            android:textSize="15sp"
+                            android:textStyle="italic" />
+
+                        <org.eazegraph.lib.charts.StackedBarChart xmlns:app="http://schemas.android.com/apk/res-auto"
+                            android:id="@+id/stackedbarchart"
+                            android:layout_width="match_parent"
+                            android:layout_height="256dp"
+                            android:padding="10dp"
+                            app:egBarWidth="20dp"
+                            app:egFixedBarWidth="true"
+                            app:egLegendHeight="40dp" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:weightSum="2">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="50dp"
+                                android:layout_weight="1"
+                                android:padding="10dp"
+                                android:text="created at : "
+                                android:textSize="15sp"
+                                android:textStyle="normal" />
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="50dp"
+                                android:layout_weight="1"
+                                android:padding="10dp"
+                                android:text="updated at : "
+                                android:textSize="15sp"
+                                android:textStyle="normal" />
+
+                        </LinearLayout>
 
 
-                </LinearLayout>
-            </android.support.v7.widget.CardView>
+                    </LinearLayout>
+                </android.support.v7.widget.CardView>
 
                 <android.support.v7.widget.CardView
                     android:layout_width="match_parent"
@@ -203,31 +208,31 @@
                             android:padding="10dp"
                             android:text="RTE portal"
                             android:textSize="25sp"
-                            android:textStyle="bold"/>
+                            android:textStyle="bold" />
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:weightSum="2">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:weightSum="2">
 
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_weight="1"
-                            android:layout_height="65dp"
-                            android:padding="10dp"
-                            android:text="Academic starting month : "
-                            android:textSize="15sp"
-                            android:textStyle="normal"/>
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="65dp"
+                                android:layout_weight="1"
+                                android:padding="10dp"
+                                android:text="Academic starting month : "
+                                android:textSize="15sp"
+                                android:textStyle="normal" />
 
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_weight="1"
-                            android:layout_height="65dp"
-                            android:padding="10dp"
-                            android:text="Academic starting year : "
-                            android:textSize="15sp"
-                            android:textStyle="normal"/>
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="65dp"
+                                android:layout_weight="1"
+                                android:padding="10dp"
+                                android:text="Academic starting year : "
+                                android:textSize="15sp"
+                                android:textStyle="normal" />
 
                         </LinearLayout>
 
@@ -245,7 +250,7 @@
                                 android:padding="10dp"
                                 android:text="Benefited boys : "
                                 android:textSize="15sp"
-                                android:textStyle="normal"/>
+                                android:textStyle="normal" />
 
                             <TextView
                                 android:layout_width="0dp"
@@ -254,7 +259,7 @@
                                 android:padding="10dp"
                                 android:text="Benefited girls : "
                                 android:textSize="15sp"
-                                android:textStyle="normal"/>
+                                android:textStyle="normal" />
 
                         </LinearLayout>
 
