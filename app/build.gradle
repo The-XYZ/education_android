@@ -6,7 +6,7 @@ android {
 
     defaultConfig {
         applicationId "com.txyz.policyhack"
-        minSdkVersion 14
+        minSdkVersion 16
         targetSdkVersion 22
         versionCode 1
         versionName "1.0"
@@ -31,4 +31,5 @@ dependencies {
     compile 'com.nineoldandroids:library:2.4.0'
     compile 'com.github.blackfizz:eazegraph:1.2.2@aar'
     compile 'com.lid.labelview:lib:0.1.1'
+    compile 'com.diogobernardino:williamchart:1.7.0'
 }

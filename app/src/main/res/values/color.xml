@@ -10,4 +10,15 @@
     <color name="colorPrimaryDark">#747474</color>
     <color name="colorAccent">#009688</color>
 
+    <color name="axis">#ffffff</color>
+    <color name="label">#ffffff</color>
+
+    <color name="bar_bg">#f67743</color>
+    <color name="bar_bgbar">#d96739</color>
+    <color name="bar_fill1">#fed4c2</color>
+    <color name="bar_fill2">#ffc2a9</color>
+    <color name="bar_highest">#ffffff</color>
+    <color name="bar_grid">#1Aaa3302</color>
+    <color name="bar_tooltip">#aa3302</color>
+
 </resources>
